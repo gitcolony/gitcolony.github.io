@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gitcolony Enterprise | Peer code reviews for enterprise</title>
+	
+	
+	<!-- Styles -->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="../css/custom.css" rel="stylesheet">
+	<link rel="shortcut icon" href="../img/favicon.ico">
+	<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png" />
+	 
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<script type="text/javascript">window.keys = {"pusher":{"key":null,"cluster":""},"mixpanel":"2d4a402ca0d295d48a436ce44484e662","ga":"UA-53481157-1","facebook":"1726963037528107","notifier":{"url":null}}</script>
+	<script type="text/javascript">
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" "); for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+
+	</script>
+	<script>(function() { var _fbq = window._fbq || (window._fbq = []); if (!_fbq.loaded) { var fbds = document.createElement('script');
+	fbds.async = true; fbds.src = '//connect.facebook.net/en_US/fbds.js'; var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(fbds, s); _fbq.loaded = true; }
+		if (window.keys.facebook) _fbq.push(['addPixelId', window.keys.facebook]);
+	})();
+	window._fbq = window._fbq || [];
+	window._fbq.push(['track', 'PixelInitialized', {}]);
+	</script>
+</head>
+<body class="welcome-enterprise-page github">
+
+<div class="top-content">
+	<div class="container">
+		<p class="text-center clearfix"><img src="../img/gitcolony-enterprise.svg" alt="Gitcolony Enterprise" width="300"> <img alt="We are an official GitHub integration" class="support-alt2" src="../img/badge-gh-integration.svg"></p>
+		<div class="intro text-center">
+			<p class="big">Welcome to the most advanced peer review tool out there!<br />
+			<span class="smll">Let’s start by creating your organization:</span></p>
+			<div class="row">
+				<div class="col-sm-5">
+					<input type="text" id="companyInput" class="form-control" placeholder="Organization name">
+				</div>
+				<div class="col-sm-4">
+					<input type="text" id="emailInput" class="form-control" placeholder="Email">
+				</div>
+				<div class="col-sm-3">
+					<input type="submit" id="signUp" class="btn btn-danger btn-lg" value="Let's go!">
+				</div>
+			</div>
+			<!-- sign in -->
+			<div>
+					<a href="/users/auth/github?scope=repo" class="btn btn-danger btn-lg">Sign in</a>
+					<br />
+					<br />
+			</div>
+			<!-- /.sign in -->
+			<!-- error -->
+			<div id="signInError" class="hide">
+				<h2>You don't have access to any organization yet.</h2>
+				<img src="../img/ant-wondering.png" width="285" height="222" alt="Ant" class="img-responsive">
+				<p>Please contact an administrator who will grant you access to an existing organization, or create your own company. </p>
+			</div>
+			<!-- /.error -->
+		</div>
+		<!-- TODO: sacar esta img cuando aparece el ms de error -->
+		<div id="signInErrorHide" class="text-center"><img src="../img/ants-enterprise-welcome.png" width="778" height="370" class="ants-enterprise-welcome" alt="Gitcolony ants"></div>
+</div>
+
+	
+<footer class="black">
+		<div class="container smll space-top-sm"> Copyright &copy; <img src="../img/ant-footer.svg" alt="Gitcolony"> Gitcolony 2015 &nbsp; | &nbsp; <a href="#" data-target="#contact" data-toggle="modal">NEED SOME HELP? CONTACT US!</a> 
+	</div>
+</footer>
+
+
+
+<div id="contact" class="modal pop-contact fade">
+		<div class="modal-dialog">
+		<div class="modal-content">
+				<div class="modal-header">
+				<div class="row">
+						<div class="col-xs-2"> <img width="78" height="60" alt="Talking bubble" class="icon-title img-responsive" src="../img/bubble.png"> </div>
+						<div class="col-xs-10">
+						<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+						<h2>We're here to help!</h2>
+						<p>Just fill out the form below and tell us what you need.</p>
+					</div>
+					</div>
+			</div>
+				<form role="form" lead-type="contact">
+				<div class="modal-body">
+						<div class="contact-form clearfix">
+						<div class="form-group col-sm-6 col-xs-12">
+								<label class="control-label sr-only" for="name">Name</label>
+								<input type="text" name="name" placeholder="Name" id="name" class="form-control">
+							</div>
+						<div class="form-group col-sm-6 col-xs-12">
+								<label class="col-xs-3 control-label sr-only" for="email">Email</label>
+								<input type="text" name="email" placeholder="Email" id="email" class="form-control">
+							</div>
+						<div class="form-group col-xs-12">
+								<label class="col-xs-3 control-label sr-only" for="message">Message</label>
+								<textarea name="message" class="col-sm-12" placeholder="Message"></textarea>
+							</div>
+					</div>
+					</div>
+				<div class="modal-footer text-center">
+						<input type="submit" class="btn btn-danger" value="Send">
+					</div>
+			</form>
+			</div>
+	</div>
+	</div>
+
+
+	
+	<!-- Scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="/js/contact_form.js"></script>
+  <script src="/js/contact_enterprise.js"></script>
+  <script>
+
+		window.jQuery(function($) {
+			var scrollDiv = $('<div class="scrollbar-measure"></div>')
+							.appendTo(document.body)[0],
+					scrollBarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+
+			$(document)
+					.on('hidden.bs.modal', '.modal', function(evt) {
+						$(document.body).css('margin-right', '');
+					})
+					.on('show.bs.modal', '.modal', function() {
+						if ($(window).height() < $(document).height()) {
+							$(document.body).css('margin-right', scrollBarWidth + 'px');
+						}
+					});
+			//var invite = window.location.href.match(/\?invite=(\d+)&token=([0-9a-z]*)/i);
+			var params = getParams();
+			var invite = params.token && params.invite;
+			if (invite) {
+				var scope = params.scope ? "?scope=" + params.scope : '';
+				document.cookie = 'invite='      + params.invite + '; path=/';
+				document.cookie = 'invite_token=' + params.token + '; path=/';
+				window.location.href = '/users/auth/github' + scope;
+			}
+		});
+
+		window.scope='repo';
+
+	</script>
+	
+</body>
+</html>

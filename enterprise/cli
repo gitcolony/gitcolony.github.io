@@ -1,0 +1,623 @@
+#!/bin/bash
+#Gitcolony cli for enterprise
+#The cli needs super user rights because docker needs it.
+#Always use sudo to run this commands
+
+APP_FOLDER='/var/lib/gitcolony'
+APP_EXE='/usr/bin/gitcolony'
+GITCOLONY_ROOT="http://www.gitcolony.com"
+DEF_ENV_FILE="$APP_FOLDER/default.env"
+USR_ENV_FILE="$APP_FOLDER/user.env"
+CONFIG_FILE="$APP_FOLDER/config"
+CURRENT_IMG="$APP_FOLDER/current_img"
+CLI_VERSION="2.0.9"
+SETTINGS_SERVER_FOLDER="$APP_FOLDER/core/installer"
+
+PATH=/usr/local/bin:$PATH
+
+if [ -f "$CONFIG_FILE" ]; then
+  source "$CONFIG_FILE"
+fi
+
+show_error()
+{
+  echo "Gitcolony error:" 1>&2
+  echo -e "  $1" 1>&2
+  exit 1
+}
+
+request()
+{
+  url=$1
+
+  DOWNLOAD=$(which curl)
+  if [ "$DOWNLOAD" ]; then
+    $DOWNLOAD -sSL -k $CURL_OPTIONS $url
+  else
+    DOWNLOAD=$(which wget);
+    if [ "$DOWNLOAD" ]; then
+      $DOWNLOAD -O- $WGET_OPTIONS $url
+    else
+      show_error "Cannot find a suitable program to perform http requests.\\n  Consider installing curl or wget (e.g. sudo apt-get install curl)\\n"
+    fi
+  fi
+}
+
+read_text()
+{
+  if [ -n "$2" ]; then
+    #Current value not empty
+    if [ "$3" != 'hide_default' ]; then
+      echo "Current Value: $2"
+    fi
+    echo -n "$1(Leave empty to keep current value): " 1>&2
+    read text < /dev/tty
+    if [ -z "$text" ]; then
+      text=$2
+    fi
+  else
+    #Current value empty
+    text=
+    while [ -z "$text" ]; do
+      echo -n "$1: " 1>&2
+      read text </dev/tty
+      if [ -z "$text" ]; then
+        echo 1>&2
+        echo "    - $1 cannot be empty" 1>&2
+        echo 1>&2
+      fi
+    done
+  fi
+}
+
+read_cert()
+{
+  local prev=$2
+  cert=
+  line=
+  echo "Current value:"
+  join=`echo $prev | tr ':' "\n"`
+  echo "$join" | head -n 2
+  echo "..."
+  echo "$join" | tail -n 2
+  echo -n "$1(Leave empty to keep current value): " 1>&2
+  while [[ ! "$line" =~ "-----END ".*"-----" ]]; do
+    read line < /dev/tty
+    if [ -z "$line" ]; then
+      cert=$prev
+      return 0;
+    fi
+    cert=$cert$line:
+  done
+}
+
+confirm()
+{
+  def_val="$2"
+  if [ "$def_val" = "y" ]; then label="[Y/n]"; else label="[y/N]"; def_val=n; fi
+  text=
+  while ! $(echo "$text" | grep -iq '^y\|n\|yes\|no$' 2>/dev/null); do
+    echo -n "$1: $label? " 1>&2
+    read text < /dev/tty
+    if [ -z "$text" ]; then
+      text=$def_val
+    fi
+  done
+  text=`echo "$text" | tr 'YN' 'yn' | sed -e 's/\(.\).*/\1/'`
+}
+
+install_docker()
+{
+	if [ -z "`which docker`" ]; then
+    request "https://get.docker.com/" | sh
+    service docker start
+  fi
+}
+
+install_docker_compose()
+{
+  if [ -z "`which docker-compose`" ]; then
+    request "https://github.com/docker/compose/releases/download/1.3.1/docker-compose-`uname -s`-`uname -m`" > /usr/bin/docker-compose
+    chmod +x /usr/bin/docker-compose
+  fi
+}
+
+check_docker()
+{
+  install_docker
+  install_docker_compose
+}
+
+show_env()
+{
+	cat $USR_ENV_FILE
+}
+
+set_env()
+{
+	local key=$1
+	local value=$2
+  local v=`get_env $key 'no_default'`
+  if [ -n "$v" ]; then
+    #existing variable
+    value=$(sed -e 's/[\/]/\\\//g' <<< $value)
+    sed -i.bak -e "s/^$key=.*/$key=$value/" $USR_ENV_FILE
+  else
+    #not existing variable
+    echo "$key=$value" >> $USR_ENV_FILE
+  fi
+}
+
+del_env()
+{
+  local key=$1
+  sed -i.bak -e "s/^$key=.*//" $USR_ENV_FILE
+}
+
+get_env()
+{
+  if [ ! -f "$USR_ENV_FILE" ]; then touch "$USR_ENV_FILE"; fi
+
+  local key=$1
+  local no_default=$2
+  local len=${#key}
+	local res=$(awk '{if ($1 ~ /^'$key'=/) {print substr($0, '$len' + 2)}}' $USR_ENV_FILE)
+  if [ -z $no_default ]; then
+    if [ -z "$res" ]; then
+      res=$(awk '{if ($1 ~ /^'$key'=/) {print substr($0, '$len' + 2)}}' $DEF_ENV_FILE)
+    fi
+  fi
+  echo "$res"
+}
+
+start_server()
+{
+  check_docker
+  copy_files
+  stop_server
+  echo "Starting server"
+  (cd $APP_FOLDER && nohup docker-compose up >> "$APP_FOLDER/core/web/log/production.log" 2>&1 &)
+}
+
+stop_server()
+{
+  check_docker
+  (cd $APP_FOLDER && docker-compose stop)
+}
+
+restart_server()
+{
+  restart_settings_server
+  (cd $APP_FOLDER && docker-compose stop)
+  (cd $APP_FOLDER && docker-compose rm -f)
+  start_server
+}
+
+update_server()
+{
+  check_docker
+  #update in background
+  #nohup docker-compose pull &> /dev/null &
+
+  #blocking update
+  (cd $APP_FOLDER && docker-compose pull)
+}
+
+install_cli()
+{
+  if [ -n "`which gitcolony`" ]; then
+    if [ "`show_version`" = "`gitcolony --version`" ]; then return 0; fi
+  fi
+
+  mkdir -p "$APP_FOLDER"
+  request "$GITCOLONY_ROOT/enterprise/cli" > "$APP_FOLDER/gitcolony-cli.sh"
+  chmod +x "$APP_FOLDER/gitcolony-cli.sh"
+  ln -f -s "$APP_FOLDER/gitcolony-cli.sh" "$APP_EXE"
+  request "$GITCOLONY_ROOT/enterprise/docker-compose" > "$APP_FOLDER/docker-compose.yml"
+  request "$GITCOLONY_ROOT/enterprise/default-env" > "$APP_FOLDER/default.env"
+
+  if [ ! -f "$USR_ENV_FILE" ]; then
+    touch "$USR_ENV_FILE"
+    first_time="true"
+  fi
+
+  check_docker
+  check_cron
+  update_server
+
+  if [ "$first_time" == "true" ]; then
+    copy_files
+    echo "Enter to http://yourgitcolonydomain.com:8844 to configure your instance. Ensure the ports 8844, 80 and 443 are open."
+  fi
+}
+
+sync_repos()
+{
+  #TODO: Server must be runing
+  local web_id=`docker ps | grep gitcolony_web_ | head -n 1 | awk '{print $1}'`
+  if [ -z "$web_id" ]; then
+    echo "Server must be running"
+    return 0;
+  fi
+
+  docker exec $web_id bash -c "cd /app && echo 'Repository.all.each{|r| r.delay.sync! }' | bundle exec rails c"
+}
+
+add_to_config()
+{
+  local key=$1
+  local value=$2
+  if [ -f "$CONFIG_FILE" ]; then
+    sed -i.bak "/^$key=/ d" "$CONFIG_FILE"
+  fi
+  echo "$key=$value" >> "$CONFIG_FILE"
+}
+
+local_install()
+{
+  mkdir -p "$APP_FOLDER"
+  cp "./gitcolony-cli.sh" "$APP_FOLDER/gitcolony-cli.sh"
+  chmod +x "$APP_FOLDER/gitcolony-cli.sh"
+  ln -f -s "$APP_FOLDER/gitcolony-cli.sh" "$APP_EXE"
+  cp "./docker-compose.yml" "$APP_FOLDER/docker-compose.yml"
+  cp "./default.env" "$APP_FOLDER/default.env"
+
+  disable_auto_update
+
+  if [ ! -f "$USR_ENV_FILE" ]; then
+    touch "$USR_ENV_FILE"
+    first_time='true'
+  fi
+
+  load_images './images'
+
+  check_cron
+  restart_if_needed
+}
+
+load_images()
+{
+  local images=$1
+  echo "Loading docker images"
+  docker load -i "$images"
+}
+
+full_update()
+{
+  request "$GITCOLONY_ROOT/enterprise/cli" | bash
+  update_server
+  restart_if_needed
+}
+
+restart_if_needed()
+{
+  curr_img=`get_docker_image_id`
+  last_img=`cat $CURRENT_IMG 2>/dev/null`
+  if [ "$curr_img" != "$last_img" ]; then
+    if [ "$first_time" != "true" ]; then
+      start_server
+    else
+      copy_files
+      echo "Enter to http://yourgitcolonydomain.com:8844 to configure your instance. Ensure the ports 8844, 80 and 443 are open."
+    fi
+  fi
+}
+
+get_docker_image_id()
+{
+  docker images gitcolony/server | grep latest | sed -E 's/^(\S*\s*){2}//g' | sed -E 's/\s.*//g'
+}
+
+copy_files()
+{
+  curr_img=`get_docker_image_id`
+  last_img=`cat $CURRENT_IMG 2>/dev/null`
+  if [ "$curr_img" != "$last_img" ]; then
+    echo "Installing gitcolony."
+    stop_settings_server
+
+    docker run -v "$APP_FOLDER/core:/data-dest" --rm gitcolony/server cp -r /data/. /data-dest/
+    echo $curr_img > $CURRENT_IMG
+
+    start_settings_server
+  fi
+}
+
+start_settings_server()
+{
+  chmod +x "$SETTINGS_SERVER_FOLDER/server"
+  (cd $SETTINGS_SERVER_FOLDER && nohup ./server &>> "log.log" &)
+}
+
+stop_settings_server()
+{
+  #fuser 8844/tcp -k
+  pid=`netstat -anp | awk '/ LISTEN / {if($4 ~ ":8844$") { gsub("/.*","",$7); print $7; exit } }'`
+  if [ ! -z "$pid" ]; then
+    kill -9 $pid
+  fi
+}
+
+restart_settings_server()
+{
+  stop_settings_server
+  start_settings_server
+}
+
+check_root_user()
+{
+  if [ "$(id -u)" != "0" ]; then
+     echo "This script must be run as root" 1>&2
+     exit 1
+  fi
+}
+
+add_cron()
+{
+  cmd=$1
+  if [ -z "`exist_cron \"$cmd\"`" ]; then
+    (crontab -l; echo "$cmd" ) | crontab -
+  fi
+}
+
+remove_cron()
+{
+  crontab -l | sed -e "s/$1.*//g" | crontab -
+}
+
+exist_cron()
+{
+  crontab -l | grep "$1"
+}
+
+remove_old_images()
+{
+  #remove all unused images
+  docker images -q -f "dangling=true"| xargs docker rmi -f
+}
+
+check_cron()
+{
+  add_cron '@reboot gitcolony start'
+
+  if [ "$AUTO_UPDATE_ENABLED" != 'false' ]; then
+    add_cron '@hourly gitcolony update'
+  fi
+}
+
+disable_auto_update() {
+  add_to_config "AUTO_UPDATE_ENABLED" "false"
+  AUTO_UPDATE_ENABLED=false
+  remove_cron "@hourly gitcolony update"
+}
+
+enable_auto_update() {
+  add_to_config "AUTO_UPDATE_ENABLED" "true"
+  AUTO_UPDATE_ENABLED=true
+  check_cron
+}
+
+update_cli()
+{
+  request "$GITCOLONY_ROOT/enterprise/cli" > "$APP_FOLDER/gitcolony-cli.sh"
+  echo "updated" 1>&2
+}
+
+uninstall()
+{
+  rm -rf "$APP_FOLDER"
+  rm -rf "$GITCOLONY_EXE"
+  echo "Gitcolony cli uninstalled" 1>&2
+}
+
+setup_header() {
+  clear
+  echo "Gitcolony Enterprise Setup"
+  echo
+}
+
+setup() {
+  setup_header
+  echo "Welcome to most advance peer review tool out there!"
+  echo "Follow these steps to setup your instance."
+  echo
+
+  #Request the licence key
+  echo "Paste the content of your license provided by Gitcolony team (don't forget to copy all characters)."
+  lic=`get_env 'GITCOLONY_LICENCE'`
+  if [ -n "$lic" ]; then
+    echo "You already have one license associated with Gitcolony Enterprise."
+    echo "Here you have the first 20 characters: ${lic:0:20}."
+    echo
+    read_text 'Your licence' $lic 'hide_default'
+  else
+    echo
+    read_text 'Your licence' $lic
+  fi
+  set_env 'GITCOLONY_LICENCE' $text
+
+  setup_header
+
+  #Request the github enterprise config
+  echo "Now it's time to connect Gitcolony Enterprise with your GitHub Enterprise instance!"
+  echo "Copy your GitHub base URL (eg: https://github.yourcompany.com)"
+  echo "If you just want to connect GC Enterprise with your GitHub.com, just type github.com."
+  var=`get_env 'GITHUB_SITE'`
+  echo
+  read_text 'Your URL' $var
+  if [ $text = 'github.com' ]; then
+    del_env 'GITHUB_SITE'
+  else
+    set_env 'GITHUB_SITE' $text
+  fi
+  echo
+  echo "Now it's time to setup your Github APP ID"
+  echo "If you still didn't create one, follow these instructions: https://www.gitcolony.com/enterprise/configuring-github-oauth"
+  var=`get_env 'GITHUB_APP_ID'`
+  echo
+  read_text 'Your GitHub Client ID' $var
+  set_env 'GITHUB_APP_ID' $text
+  echo
+  echo "Setup your Github Secret Key."
+  var=`get_env 'GITHUB_SECRET_KEY'`
+  echo
+  read_text 'Your GitHub Secret Key' $var
+  set_env 'GITHUB_SECRET_KEY' $text
+
+  setup_header
+
+  #ask if the user wants to use his database or the docker one
+  echo "Setup the database instance. Gitcolony interacts with an instance of a PostgreSQL DDBB."
+  echo "By default, we will create a new instance on this server."
+  echo "If you want to use your own instance in this/another server,"
+  echo "please provide the full URL (eg: postgres://user:pass@host:5432/database)"
+  var=`get_env 'DATABASE_URL'`
+  echo
+  read_text 'Your URL' $var
+  set_env 'DATABASE_URL' $text
+
+  setup_header
+
+  #Configure smtp
+  echo "Gitcolony Enterprise uses email to notify users about important events."
+  echo "Provide your own SMTP domain (eg: smtp.company.com)."
+  var=`get_env 'SMTP_HOST'`
+  echo
+  read_text 'SMTP_HOST' $var
+  set_env 'SMTP_HOST' $text
+  echo
+  echo "Provide the SMTP port (eg 587)"
+  var=`get_env 'SMTP_PORT'`
+  echo
+  read_text 'SMTP_PORT' $var
+  set_env 'SMTP_PORT' $text
+  echo
+  echo "Provide the SMTP username. Type anonymous if you don't set up a user and password for the authentication"
+  var=`get_env 'SMTP_USERNAME'`
+  echo
+  read_text 'SMTP_USERNAME' $var
+  set_env 'SMTP_USERNAME' $text
+
+  if [ $text != 'anonymous' ]; then
+    echo
+    echo "Provide the SMTP password"
+    var=`get_env 'SMTP_PASSWORD'`
+    echo
+    read_text 'SMTP_PASSWORD' $var
+    set_env 'SMTP_PASSWORD' $text
+  fi
+
+  setup_header
+
+  echo "Setup your Gitcolony Enteprise URL."
+  echo "eg: https://gitcolony.yourcompany.com"
+  var=`get_env 'SITE_URL'`
+  echo
+  read_text 'Your URL' $var
+  set_env 'SITE_URL' $text
+
+  setup_header
+
+  #ask if the user wants to use his certificate or the self-signed
+  echo "Setup your SSL certificate. Gitcolony uses https in all its connections."
+  echo "By default, Gitcolony will assign a self-signed certificate."
+  echo "Paste the content of your certificate - don't forget to copy all characters (or leave it empty to use default)"
+  var=`get_env 'SERVER_CERTIFICATE'`
+  echo
+  read_cert 'Your Certificate' "$var"
+  set_env 'SERVER_CERTIFICATE' "$cert"
+
+  echo
+  echo "Now enter your Private Key (leave empty to use default):"
+  var=`get_env 'SERVER_PRIVATE_KEY'`
+  echo
+  read_cert 'Your Private Key' "$var"
+  set_env 'SERVER_PRIVATE_KEY' "$cert"
+
+  setup_header
+
+  echo 'Congratulations! Gitcolony Enterprise setup is done!'
+  echo 'You can start the server using "sudo gitcolony start" command.'
+  echo "After that enter to: `get_env 'SITE_URL'` ,import your repos and invite your team!"
+  echo
+  echo 'If you want to update defined values during this process, just run again "sudo gitcolony setup" and override those that you want to update. Then run "sudo gitcolony restart" to apply new settings.'
+
+  #store secrets keys in user.env because default.env every time creates a new one
+  var=`get_env 'SECRET_TOKEN'`
+  set_env 'SECRET_TOKEN' $var
+  var=`get_env 'GITCOLONY_CODESERVER_TOKEN'`
+  set_env 'GITCOLONY_CODESERVER_TOKEN' $var
+
+  #Notifier server is hosted in the same server
+  var=`get_env 'SITE_URL'`
+  set_env 'NOTIFIER_URL' "$var"
+
+  #Mail host
+  host=`echo "$var" | awk -F/ '{print $3}'`
+  set_env 'MAIL_HOST' "$host"
+  set_env 'MAIL_FROM' "\"Gitcolony Notifications\" <notifications@$host>"
+}
+
+show_help()
+{
+	echo "Usage: gitcolony [OPTIONS] COMMAND [arg...]"
+	echo
+	echo "Administrative cli for Gitcolony server"
+	echo
+	echo "Options:"
+	echo "    -h, --help       Print usage"
+	echo "    -v, --version    Print version information"
+	echo
+	echo "Commands:"
+	echo "    setup                Configure most important properties"
+	echo "    update               Get the latest version of the cli"
+	echo "    start                Start gitcolony server"
+	echo "    stop                 Stops gitcolony server"
+  echo "    restart              Restarts gitcolony server"
+  echo "    auto-update-enabled  Enable auto update"
+  echo "    auto-update-disabled Disable auto update"
+  echo "    sync                 Sync repositories"
+  echo "    restart-settings     Restart settings server"
+	echo "    env                  List all enviroment variables of the server"
+	echo "    env:set              Set an enviroment variable"
+	echo
+	echo "Run gitcolony COMMAND --help for more information on a command."
+}
+
+show_version()
+{
+	#TODO: show server version too not only cli version
+	echo "Gitcolony version $CLI_VERSION"
+}
+
+#Extra tools
+fetch_all()
+{
+  (cd $APP_FOLDER && docker-compose run code /bin/bash -c "cd /data/repos && find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c \"cd '{}' && git fetch --all\" \;")
+}
+
+
+check_root_user
+
+if [ "$0" = "bash" ]; then
+  install_cli
+  exit 0
+fi
+
+case "$1" in
+  setup)                setup $*; exit 0;;
+  update)               full_update; exit $?;;
+  start)                start_server;;
+  stop)                 stop_server;;
+  restart)              restart_server;;
+  restart-settings)     restart_settings_server;;
+  fetch)                fetch_all;;
+  local-install)        local_install;;
+  auto-update-enabled)  enable_auto_update;;
+  auto-update-disabled) disable_auto_update;;
+  sync)                 sync_repos;;
+  --help)               show_help;;
+  --version)            show_version;;
+  -v)                   show_version;;
+  *) show_help;;
+esac

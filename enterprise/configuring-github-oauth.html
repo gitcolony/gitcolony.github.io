@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gitcolony Enterprise | Installation </title>
+	
+	
+	
+	<!-- Styles -->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="../css/custom.css" rel="stylesheet">
+	<link rel="shortcut icon" href="../../img/favicon.ico">
+	<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png" />
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<script type="text/javascript">window.keys = {"pusher":{"key":null,"cluster":""},"mixpanel":"2d4a402ca0d295d48a436ce44484e662","ga":"UA-53481157-1","facebook":"1726963037528107","notifier":{"url":null}}</script>
+	<script type="text/javascript">
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" "); for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+	</script>
+	<script>(function() { var _fbq = window._fbq || (window._fbq = []); if (!_fbq.loaded) { var fbds = document.createElement('script');
+	fbds.async = true; fbds.src = '//connect.facebook.net/en_US/fbds.js'; var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(fbds, s); _fbq.loaded = true; } if (window.keys.facebook) _fbq.push(['addPixelId', window.keys.facebook]);
+	})(); window._fbq = window._fbq || []; window._fbq.push(['track', 'PixelInitialized', {}]);
+	</script>
+</head>
+<body class="index enterprise-page">
+<header class="navbar navbar-fixed-top" role="navigation">
+	<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+	<div class="container">
+		<div class="navbar-header"> <a class="navbar-brand" href="/"></a> </div>
+		<nav class="collapse navbar-collapse">
+				<ul class="nav navbar-nav" id="nav">
+					<li><a href="/features">POWERFUL FEATURES</a></li>
+					<!--li><a href="/pricing">PLANS &amp; PRICING</a></li-->
+					<li class="active"><a href="/enterprise">ENTERPRISE</a></li>
+					<li><a data-target="#contact" data-toggle="modal" href="#">CONTACT</a></li>
+					<li><a href="#" data-target="#demo" data-toggle="modal" class="btn btn-primary btn-outline">REQUEST A DEMO</a></li>
+					<li><a href="/users/auth/github" class="btn btn-primary">SIGN IN</a></li>
+				</ul>
+		</nav>
+	</div>
+</header>
+
+<div class="container markdown-format images">
+	<div class="intro text-center">
+		<h2>Configuring GitHub OAuth</h2>
+	</div>
+	<h3> <a name="step-1-register-a-new-oauth-application" class="anchor" href="#step-1-register-a-new-oauth-application"><span class="octicon octicon-link"></span></a>Step 1: Register a new OAuth application</h3>
+	<div class="row">
+		<div class="col-sm-10">
+			<ol>
+				<li>
+					<p>On yourdomain.com, sign into any account that is on the Owners team of your company's organization.</p>
+				</li>
+				<li>
+					<p> <img class="img-modal" src="https://github-images.s3.amazonaws.com/help/settings/userbar-account-settings.png" alt="Account Settings icon">In the upper-right corner of any page, click the <a href="https://github.com/settings/">Account Settings</a> icon.</p>
+				</li>
+				<li>
+					<p> <img class="img-modal" src="https://github-images.s3.amazonaws.com/dotcom/settings/sidebar-organization-name.png" alt="Sidebar organization name">In the left sidebar, click the name of your organization.</p>
+				</li>
+				<li>
+					<p> <img class="img-modal" src="https://github-images.s3.amazonaws.com/dotcom/settings/sidebar-organization-applications.png" alt="Sidebar organization applications">In the left sidebar, click <strong>Applications</strong>.</p>
+				</li>
+				<li>
+					<p> <img class="img-modal" src="https://github-images.s3.amazonaws.com/dotcom/settings/applications/register-new-org-application.png" alt="Register new application button">At the top of the page, under <strong>Organization applications</strong>, click <strong>Register new application</strong>.</p>
+				</li>
+				<li>
+					<p> <img class="img-modal" src="https://github-images.s3.amazonaws.com/dotcom/settings/applications/application-name.png" alt="Register new application button">Under <strong>Application name</strong>, type:</p>
+					<br />
+					<pre class="command-line">
+Gitcolony Enterprise</pre>
+				</li>
+				<li>
+					<p>Under <strong>Homepage URL</strong>, type the URL of your Gitcolony Enterprise.</p>
+					<pre class="command-line">
+https://<em>gitcolony.yourcompany.com</em>
+</pre>
+				</li>
+				<li>
+					<p>Under <strong>Authorization callback URL</strong>, type the URL of your Gitcolony Enterprise followed by <code>/users/auth/github/callback</code>.</p>
+					<pre class="command-line">
+https://<em>gitcolony.yourcompany.com</em>/users/auth/github/callback
+</pre>
+				</li>
+				<li>
+					<p> <img class="img-modal" src="https://github-images.s3.amazonaws.com/dotcom/settings/applications/register-application-button.png" alt="Register application button">Click <strong>Register application</strong>.</p>
+				</li>
+				<li>
+					<p> <img class="img-modal" src="https://github-images.s3.amazonaws.com/dotcom/settings/applications/client-id-and-secret.png" alt="Client ID and Client Secret">Note the "Client ID" and "Client Secret" values that appear (you will need them later).</p>
+				</li>
+			</ol>
+			<!--h3> <a name="step-2-configure-oauth" class="anchor" href="#step-2-configure-oauth"><span class="octicon octicon-link"></span></a>Step 2: Configure OAuth</h3>
+			<ol>
+				<li>
+					<p>On your GitHub Enterprise appliance, <a href="/enterprise/11.10.340/admin/articles/accessing-the-management-console">access the Management Console</a>.</p>
+				</li>
+				<li>
+					<p> <img src="https://github-images.s3.amazonaws.com/enterprise/manage/settings-tab.png" alt="Settings tab">At the top of the page, click the <strong>Settings</strong> tab.</p>
+				</li>
+				<li>
+					<p> <img src="https://github-images.s3.amazonaws.com/enterprise/manage/authentication-tab.png" alt="Authentication tab">In the left sidebar, click <strong>Authentication</strong>.</p>
+				</li>
+				<li>
+					<p> <img src="https://github-images.s3.amazonaws.com/enterprise/manage/authentication/oauth-option.png" alt="GitHub OAuth option">Under <strong>Authentication</strong>, select <strong>GitHub OAuth</strong>.</p>
+				</li>
+				<li>
+					<p> <img src="https://github-images.s3.amazonaws.com/enterprise/manage/authentication/oauth-client-id.png" alt="OAuth Client ID text field">Under <strong>OAuth Client ID</strong>, type the "Client ID" value for the OAuth application that you created above.</p>
+				</li>
+				<li>
+					<p> <img src="https://github-images.s3.amazonaws.com/enterprise/manage/authentication/oauth-client-secret.png" alt="OAuth Client Secret text field">Under <strong>OAuth Client Secret</strong>, type the "Client Secret" value for the OAuth application that you created above.</p>
+				</li>
+				<li>
+					<p> <img src="https://github-images.s3.amazonaws.com/enterprise/manage/authentication/oauth-organization-name.png" alt="Organization name text field">Under <strong>Organization name</strong>, type the name of your company's organization on github.com.</p>
+				</li>
+				<li>
+					<p> <img src="https://github-images.s3.amazonaws.com/enterprise/settings/save-settings.png" alt="Save settings">At the bottom of the page, click <strong>Save settings</strong>.</p>
+				</li>
+				<li>
+					<p> <img src="https://github-images.s3.amazonaws.com/enterprise/settings/configuring-your-instance.png" alt="Configuring your instance">Wait for the configuration run to complete.</p>
+				</li>
+			</ol-->
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+</div>
+</div>
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<h3>Want to know more? Get in touch with us:</h3>
+				<div class="contact">
+					<ul>
+						<li><i class="fa fa-envelope"></i> <a href="mailto:contact@gitcolony.com">contact@gitcolony.com</a></li>
+						<li><i class="fa fa-skype"></i> Gitcolony</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-6 footer-contact">
+				<div class="social">
+					<a class="ico" target="_blank" href="http://www.linkedin.com/company/gitcolony"><i class="fa fa-linkedin"></i></a>
+					<a class="ico" target="_blank" href="https://twitter.com/gitcolony"><i class="fa fa-twitter"></i></a>
+					<a class="ico" target="_blank" href="https://www.facebook.com/Gitcolony"><i class="fa fa-facebook"></i></a>
+						<a class="ico" target="_blank" href="https://medium.com/@gitcolony/"><i class="fa fa-rss"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<div class="container">
+			Copyright &copy; <img src="img/ant-footer.svg" alt="Gitcolony"> Gitcolony 2015 <br>
+			<span class="smll">ALL RIGHTS RESERVED.</span>
+				<div class="smll"><a href="../privacy.html" rel="nofollow">PRIVACY POLICY</a> &nbsp; | &nbsp;  
+				<a href="../terms-and-conditions.html" rel="nofollow">TERMS AND CONDITIONS</a></div> 
+		</div>
+	</div>
+</footer>
+
+
+<div id="contact" class="modal pop-contact fade">
+		<div class="modal-dialog">
+		<div class="modal-content">
+				<div class="modal-header">
+				<div class="row">
+						<div class="col-xs-2"> <img width="78" height="60" alt="Talking bubble" class="icon-title img-responsive" src="/img/bubble.png"> </div>
+						<div class="col-xs-10">
+						<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+						<h2>We'd love hearing from you.</h2>
+						<p>Just fill out the form below and tell us what you think.</p>
+					</div>
+					</div>
+			</div>
+				<form role="form" lead-type="contact">
+				<div class="modal-body">
+						<div class="contact-form clearfix">
+						<div class="form-group col-sm-6 col-xs-12">
+								<label class="control-label sr-only" for="name">Name</label>
+								<input type="text" name="name" placeholder="Name" id="name" class="form-control">
+							</div>
+						<div class="form-group col-sm-6 col-xs-12">
+								<label class="col-xs-3 control-label sr-only" for="email">Email</label>
+								<input type="text" name="email" placeholder="Email" id="email" class="form-control">
+							</div>
+						<div class="form-group col-xs-12">
+								<label class="col-xs-12 control-label sr-only" for="message">Interested in...</label>
+								<textarea name="message" class="col-sm-12" placeholder="Message"></textarea>
+							</div>
+					</div>
+					</div>
+				<div class="modal-footer text-center">
+						<input type="submit" class="btn btn-danger" value="Send">
+					</div>
+			</form>
+			</div>
+	</div>
+	</div>
+	
+
+<div id="demo" class="modal pop-contact fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="row">
+						<div class="col-xs-12">
+							<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+							<h1>We’re happy to help out!</h1>
+							<p>Want a real person to walk you through a live demo?</p>
+						</div>
+					</div>
+				</div>
+				<form role="form" lead-type="contact" class="form-demo-request">
+				<div class="modal-body">
+					<div class="row contact-form clearfix">
+						<div class="form-group col-sm-6 col-xs-12">
+							<label class="control-label sr-only" for="name">Name</label>
+							<input type="text" name="name" placeholder="Name" id="name" class="form-control">
+						</div>
+						<div class="form-group col-sm-6 col-xs-12">
+							<label class="col-xs-3 control-label sr-only" for="email">Email</label>
+							<input type="text" name="email" placeholder="Email" id="email" class="form-control">
+						</div>
+						<div class="form-group col-sm-6 col-xs-12">
+							<label class="col-xs-3 control-label sr-only" for="company">Company</label>
+							<input type="text" name="company" placeholder="Company" id="company" class="form-control">
+						</div>
+						<div class="form-group col-sm-6 col-xs-12">
+							<label class="col-xs-3 control-label sr-only" for="country">Country</label>
+							<input type="text" name="country" placeholder="Country" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer text-center">
+					<input type="submit" class="btn btn-danger" value="Request demo">
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+    <div class="modal pop-contact fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+          <div class="modal-body">
+            <img id="mimg" style="display: block;max-width:550px;max-height:600px;width: auto;height: auto;" src="">
+          </div>
+        </div>
+      </div>
+    </div>
+	
+<!-- Scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="../js/contact_form.js"></script> 
+<script>
+	if ( window.keys.ga ) {
+		window.ga('create', window.keys.ga, 'auto');
+		ga('send', 'pageview');
+	}
+
+	if (window.keys.mixpanel) {
+		window.mixpanel.init(window.keys.mixpanel);
+		mixpanel.track("Visit configuring github");
+	}
+
+	$('a[plan]').click(function() {
+		mixpanel.track("Event: plan click", { plan: $(this).attr('plan') });
+	});
+
+	$('.img-modal').click(function() {
+        var sr=$(this).attr('src'); 
+        $('#mimg').attr('src',sr);
+        $('#imgModal').modal('show');
+    });
+
+</script>
+</body>
+</html>

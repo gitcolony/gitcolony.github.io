@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gitcolony flavored markdown | User documentation</title>
+	<link rel="canonical" href="https://www.gitcolony.com/markdown">
+	
+	<meta name="description" content="Gitcolony is a collaborative platform for software developers to perform peer code reviews. Gitcolony makes code reviews actually happen in an efficient and amusing way.">
+	<meta name="keywords" content="markdown, gitcolony markdown, documentation, user">
+	
+	<!-- Twitter Card data -->
+	<meta name="twitter:card" content="Gitcolony is a collaborative platform for software developers to perform peer code reviews. Gitcolony makes code reviews actually happen in an efficient and amusing way.">
+	<meta name="twitter:site" content="@gitcolony">
+	<meta name="twitter:title" content="Gitcolony terms and conditions">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:creator" content="@gitcolony">
+	<meta name="twitter:image" content="https://www.gitcolony.com/img/gitcolony-social-icon.png" />
+	
+	<!-- Open Graph data -->
+	<meta property="og:title" content="Gitcolony terms and conditions" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="https://www.gitcolony.com/" />
+	<meta property="og:image" content="https://www.gitcolony.com/img/gitcolony-social-icon.png" />
+	<meta property="og:description" content="" />
+	<meta property="og:site_name" content="Gitcolony" />
+	<meta property="fb:admins" content="1528770957345205" /> 
+	
+	<!-- Styles -->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="apple-touch-icon" href="../img/apple-touch-icon.png" />
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<script type="text/javascript">window.keys = {"pusher":{"key":null,"cluster":""},"mixpanel":"2d4a402ca0d295d48a436ce44484e662","ga":"UA-53481157-1","facebook":"1726963037528107","notifier":{"url":null}}</script>
+	<script type="text/javascript">
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" "); for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+
+	</script>
+	<script>(function() { var _fbq = window._fbq || (window._fbq = []); if (!_fbq.loaded) { var fbds = document.createElement('script');
+	fbds.async = true; fbds.src = '//connect.facebook.net/en_US/fbds.js'; var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(fbds, s); _fbq.loaded = true; }
+		if (window.keys.facebook) _fbq.push(['addPixelId', window.keys.facebook]);
+	})();
+	window._fbq = window._fbq || [];
+	window._fbq.push(['track', 'PixelInitialized', {}]);
+	</script>
+</head>
+<body class="index powerful-reatures">
+<header class="navbar navbar-fixed-top" role="navigation">
+	<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+	<div class="container">
+		<div class="navbar-header"> <a class="navbar-brand" href="/"></a> </div>
+		<nav class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="/features">POWERFUL FEATURES</a></li>
+				<!--li><a href="/pricing">PLANS &amp; PRICING</a></li-->
+				<li><a href="/enterprise">ENTERPRISE</a></li>
+				<li><a data-target="#contact" data-toggle="modal" href="#">CONTACT</a></li>
+				<li><a href="/users/auth/Gitcolony" class="btn btn-primary">SIGN IN</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<div class="jumbotron">
+	<div class="container">
+		<div class="intro text-center">
+			<h1>Gitcolony markdown</h1>
+			<p class="big">Markdown is a lightweight and easy-to-use syntax for styling all forms of writing on Gitcolony.</p>
+		</div>
+	</div>
+</div>
+
+
+<div class="container">
+	<h2>What is Markdown?</h2>
+
+<p><a href="http://daringfireball.net/projects/markdown/">Markdown</a> is a way to style text on the web. You control the display of the document; formatting words as bold or italic, adding images, and creating lists are just a few of the things we can do with Markdown. Mostly, Markdown is just regular text with a few non-alphabetic characters thrown in, like <code>#</code> or <code>*</code>.</p>
+
+<p>You can use Markdown most places around Gitcolony:</p>
+
+<ul>
+<li>Comments in Issues and Pull Requests</li>
+<li>Conversations</li>
+</ul>
+
+
+<p><a id="examples" title="Examples" class="toc-item"></a></p>
+
+<h2>Examples</h2>
+
+<ul class="example-nav js-examples-nav">
+  <li><a href="#" class="selected" data-container-id="example-text" data-proofer-ignore="">Text</a></li>
+  <li><a href="#" data-container-id="example-lists" data-proofer-ignore="">Lists</a></li>
+  <li><a href="#" data-container-id="example-images" data-proofer-ignore="">Images</a></li>
+  <li><a href="#" data-container-id="example-headers" data-proofer-ignore="">Headers &amp; Quotes</a></li>
+  <li><a href="#" data-container-id="example-code" data-proofer-ignore="">Code</a></li>
+  <li><a href="#" data-container-id="example-extras" data-proofer-ignore="">Extras</a></li>
+</ul>
+
+
+
+
+<div class="markdown-example" id="example-text">
+<pre class="source">It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)
+</pre>
+<div class="rendered">
+It's very easy to make some words <strong>bold</strong> and other words <em>italic</em> with Markdown. You can even <a href="http://google.com">link to Google!</a>
+</div>
+</div>
+
+
+
+
+<div class="markdown-example" id="example-lists" style="display:none">
+<pre class="source">Sometimes you want numbered lists:
+
+1. One
+2. Two
+3. Three
+
+Sometimes you want bullet points:
+
+* Start a line with a star
+* Profit!
+
+Alternatively,
+
+- Dashes work just as well
+- And if you have sub points, put two spaces before the dash or star:
+  - Like this
+  - And this
+</pre>
+<div class="rendered">
+  <p>Sometimes you want numbered lists:</p>
+  <ol>
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+  </ol>
+  <p>Sometimes you want bullet points:</p>
+  <ul>
+  <li>Start a line with a star</li>
+  <li>Profit!</li>
+  </ul>
+  <p>Alternatively,</p>
+  <ul>
+  <li>Dashes work just as well</li>
+  <li>And if you have sub points, put two spaces before the dash or star:
+  <ul>
+  <li>Like this</li>
+  <li>And this</li>
+  </ul>
+  </li>
+  </ul>
+</div>
+</div>
+
+
+
+
+<div class="markdown-example" id="example-images" style="display:none">
+<pre class="source">If you want to embed images, this is how you do it:
+
+![Image of Yaktocat](https://octodex.Gitcolony.com/images/yaktocat.png)
+</pre>
+<div class="rendered">
+  <p>If you want to embed images, this is how you do it:</p>
+  <p><img src="https://octodex.Gitcolony.com/images/yaktocat.png" alt="Image of Yakotocat"></p>
+</div>
+</div>
+
+
+
+
+<div class="markdown-example" id="example-headers" style="display:none">
+<pre class="source"># Structured documents
+
+Sometimes it's useful to have different levels of headings to structure your documents. Start lines with a `#` to create headings. Multiple `##` in a row denote smaller heading sizes.
+
+### This is a third-tier heading
+
+You can use  one `#` all the way up to `######` six for different heading sizes.
+
+If you'd like to quote someone, use the &gt; character before the line:
+
+&gt; Coffee. The finest organic suspension ever devised... I beat the Borg with it.
+&gt; - Captain Janeway
+</pre>
+<div class="rendered">
+  <h1>Structured documents</h1>
+
+  <p>Sometimes it’s useful to have different levels of headings to structure your documents. Start lines with a <code>#</code> to create headings. Multiple <code>##</code> in a row denote smaller heading sizes.</p>
+
+  <h3>This is a third-tier heading</h3>
+
+  <p>You can use  one <code>#</code> all the way up to <code>######</code> six for different heading sizes.</p>
+
+  <p>If you’d like to quote someone, use the &gt; character before the line:</p>
+
+  <blockquote><p>Coffee. The finest organic suspension ever devised… I beat the Borg with it.
+  - Captain Janeway</p></blockquote>
+</div>
+</div>
+
+
+
+
+<div class="markdown-example" id="example-code" style="display:none">
+<pre class="source">There are many different ways to style code with Gitcolony's markdown. If you have inline code blocks, wrap them in backticks: `var example = true`.  If you've got a longer block of code, you can indent with four spaces:
+
+    if (isAwesome){
+      return true
+    }
+
+Gitcolony also supports something called code fencing, which allows for multiple lines without indentation:
+
+```
+if (isAwesome){
+  return true
+}
+```
+
+And if you'd like to use syntax highlighting, include the language:
+
+```javascript
+if (isAwesome){
+  return true
+}
+```
+</pre>
+<div class="rendered">
+  <p>There are many different ways to style code with Gitcolony’s markdown. If you have inline code blocks, wrap them in backticks: <code>var example = true</code>.  If you’ve got a longer block of code, you can indent with four spaces:</p>
+
+<pre><code>if (isAwesome){
+  return true
+}
+</code></pre>
+
+  <p>Gitcolony also supports something called code fencing, which allows for multiple lines without indentation:</p>
+
+<pre><code>if (isAwesome){
+  return true
+}
+</code></pre>
+
+  <p>And if you’d like to use syntax highlighting, include the language:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">isAwesome</span><span class="p">){</span>
+  <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+
+
+
+
+<div class="markdown-example" id="example-extras" style="display:none">
+<pre class="source">Gitcolony supports many extras in Markdown that help you reference and link to people. If you ever want to direct a comment at someone, you can prefix their name with an @ symbol: Hey @kneath — love your sweater!
+
+But I have to admit, tasks lists are my favorite:
+
+- [x] This is a complete item
+- [ ] This is an incomplete item
+
+And, of course emoji! :<nbsp>sparkles: :<nbsp>camel: :<nbsp>boom:
+</nbsp></nbsp></nbsp></pre>
+<div class="rendered">
+  <p>Gitcolony supports many extras in Markdown that help you reference and link to people. If you ever want to direct a comment at someone, you can prefix their name with an @ symbol: Hey <a href="https://gitcolony.com/kneath" class="user-mention">@kneath</a> — love your sweater!</p>
+
+  <p>But I have to admit, tasks lists are my favorite:</p>
+
+  <ul class="task-list">
+  <li class="task-list-item">
+  <input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> This is a complete item</li>
+  <li class="task-list-item">
+  <input class="task-list-item-checkbox" disabled="" type="checkbox"> This is an incomplete item</li>
+  </ul><p>And, of course emoji! <img class="emoji" title=":sparkles:" alt=":sparkles:" src="https://assets.Gitcolony.com/images/icons/emoji/unicode/2728.png" align="absmiddle" width="20" height="20"> <img class="emoji" title=":camel:" alt=":camel:" src="https://assets.Gitcolony.com/images/icons/emoji/unicode/1f42b.png" align="absmiddle" width="20" height="20"> <img class="emoji" title=":boom:" alt=":boom:" src="https://assets.Gitcolony.com/images/icons/emoji/unicode/1f4a5.png" align="absmiddle" width="20" height="20"></p>
+
+</div>
+</div>
+
+
+<p><a id="syntax" title="Basic syntax" class="toc-item"></a></p>
+
+<h2>Syntax guide</h2>
+
+<p>Here’s an overview of Markdown syntax that you can use anywhere on Gitcolony.com or in your own text files.</p>
+
+<h3>Headers</h3>
+
+<pre><code class="markdown"># This is an &lt;h1&gt; tag
+## This is an &lt;h2&gt; tag
+###### This is an &lt;h6&gt; tag
+</code></pre>
+
+<h3>Emphasis</h3>
+
+<pre><code class="markdown">*This text will be italic*
+_This will also be italic_
+
+**This text will be bold**
+__This will also be bold__
+
+*You **can** combine them*
+</code></pre>
+
+<h3>Lists</h3>
+
+<h4>Unordered</h4>
+
+<pre><code class="markdown">* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b
+</code></pre>
+
+<h4>Ordered</h4>
+
+<pre><code class="markdown">1. Item 1
+2. Item 2
+3. Item 3
+   * Item 3a
+   * Item 3b
+</code></pre>
+
+<h3>Images</h3>
+
+<pre><code class="markdown">![Gitcolony Logo](/images/logo.png)
+Format: ![Alt Text](url)
+</code></pre>
+
+<h3>Links</h3>
+
+<pre><code class="markdown">http://gitcolony.com - automatic!
+[Gitcolony](http://gitcolony.com)
+</code></pre>
+
+<h3>Blockquotes</h3>
+
+<pre><code class="markdown">As Kanye West said:
+
+&gt; We're living the future so
+&gt; the present is our past.
+</code></pre>
+
+<h3>Inline code</h3>
+
+<pre><code>I think you should use an
+`&lt;addr&gt;` element here instead.
+</code></pre>
+
+<p><a id="Gitcolony-flavored-markdown" title="GFM" class="toc-item"></a></p>
+
+<h2>Gitcolony Flavored Markdown</h2>
+
+<p>Gitcolony.com uses its own version of the Markdown syntax that provides an additional set of useful features, many of which make it easier to work with content on Gitcolony.com.</p>
+
+<p>Note that some features of Gitcolony Flavored Markdown are only available in the descriptions and comments of Issues and Pull Requests. These include @mentions, Issues, and Pull Requests.</p>
+
+<h3>Syntax highlighting</h3>
+
+<p>Here’s an example of how you can use syntax highlighting:</p>
+
+<pre><code>```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
+</code></pre>
+
+<p>You can also simply indent your code by four spaces:</p>
+
+<pre><code>    function fancyAlert(arg) {
+      if(arg) {
+        $.facebox({div:'#foo'})
+      }
+    }
+</code></pre>
+
+<p>Here’s an example of Python code without syntax highlighting:</p>
+
+<pre><code>def foo():
+    if not bar:
+        return True
+</code></pre>
+
+<h3>Task Lists</h3>
+
+<pre><code>- [x] @mentions, #refs, [links](), **formatting**, and &lt;del&gt;tags&lt;/del&gt; supported
+- [x] list syntax required (any unordered or ordered list supported)
+- [x] this is a complete item
+- [ ] this is an incomplete item
+</code></pre>
+
+<h3>Tables</h3>
+
+<p>You can create tables by assembling a list of words and dividing them with hyphens <code>-</code> (for the first row), and then separating each column with a pipe <code>|</code>:</p>
+
+<pre><code>First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
+</code></pre>
+
+<p>Would become:</p>
+
+<table>
+<thead>
+<tr>
+<th>First Header </th>
+<th> Second Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content from cell 1 </td>
+<td> Content from cell 2</td>
+</tr>
+<tr>
+<td>Content in the first column </td>
+<td> Content in the second column</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Username @mentions</h3>
+
+<p>Typing an <code>@</code> symbol, followed by a username, will notify that person to come and view the comment. This is called an “@mention”, because you’re <em>mentioning</em> the individual. You can also @mention teams within an organization.</p>
+
+<h3>Automatic linking for URLs</h3>
+
+<p>Any URL (like <code>http://www.gitcolony.com/</code>) will be automatically converted into a clickable link.</p>
+
+<h3>Strikethrough</h3>
+
+<p>Any word wrapped with two tildes (like <code>~~this~~</code>) will appear crossed out.</p>
+  </div>
+</div>
+
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<h3>Want to know more? Get in touch with us:</h3>
+				<div class="contact">
+					<ul>
+						<li><i class="fa fa-envelope"></i> <a href="mailto:contact@gitcolony.com">contact@gitcolony.com</a></li>
+						<li><i class="fa fa-skype"></i> Gitcolony</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-6 footer-contact">
+				<div class="social"> <a class="ico" target="_blank" href="http://www.linkedin.com/company/gitcolony"><i class="fa fa-linkedin"></i></a> <a class="ico" target="_blank" href="https://twitter.com/gitcolony"><i class="fa fa-twitter"></i></a> <a class="ico" target="_blank" href="https://www.facebook.com/Gitcolony"><i class="fa fa-facebook"></i></a>
+						<a class="ico" target="_blank" href="https://medium.com/@gitcolony/"><i class="fa fa-rss"></i></a> </div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<div class="container space-top-sm"> Copyright &copy; <img src="img/ant-footer.svg" alt="Gitcolony"> Gitcolony 2015 <br>
+			<span class="smll">ALL RIGHTS RESERVED.</span> </div>
+	</div>
+</footer>
+
+<div id="contact" class="modal pop-contact fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="row">
+					<div class="col-xs-2"> <img width="78" height="60" alt="Talking bubble" class="icon-title img-responsive" src="img/bubble.png"> </div>
+					<div class="col-xs-10">
+						<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+						<h2>We'd love hearing from you.</h2>
+						<p>Just fill out the form below and tell us what you think.</p>
+					</div>
+				</div>
+			</div>
+			<form role="form" lead-type="contact">
+				<div class="modal-body">
+					<div class="contact-form clearfix">
+						<div class="form-group col-sm-6 col-xs-12">
+							<label class="control-label sr-only" for="name">Name</label>
+							<input type="text" name="name" placeholder="Name" id="name" class="form-control">
+						</div>
+						<div class="form-group col-sm-6 col-xs-12">
+							<label class="col-xs-3 control-label sr-only" for="email">Email</label>
+							<input type="text" name="email" placeholder="Email" id="email" class="form-control">
+						</div>
+						<div class="form-group col-xs-12">
+							<label class="col-xs-3 control-label sr-only" for="message">Interested in...</label>
+							<textarea name="message" class="col-sm-12" placeholder="Message"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer text-center">
+					<input type="submit" class="btn btn-danger" value="Send">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+	<!-- Scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="js/contact_form.js"></script>
+	<script>
+		if ( window.keys.ga ) {
+			window.ga('create', window.keys.ga, 'auto');
+			ga('send', 'pageview');
+		}
+
+		if (window.keys.mixpanel) {
+			window.mixpanel.init(window.keys.mixpanel);
+			mixpanel.track("Visit Markdown");
+		}
+	</script>
+</body>
+</html>

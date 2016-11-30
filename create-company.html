@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Gitcolony is a collaborative platform for software developers to do code reviews. By streamlining the code review process and incorporating gamification, Gitcolony makes code reviews actually happen in an efficient and amusing way.">
+	<title>Gitcolony | Build bulletproof software faster</title>
+
+	<!-- Styles -->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
+	<link rel="shortcut icon" href="img/favicon.ico">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<script type="text/javascript">window.keys = {"pusher":{"key":null,"cluster":""},"mixpanel":"2d4a402ca0d295d48a436ce44484e662","ga":"UA-53481157-1","facebook":"1726963037528107","notifier":{"url":null}}</script>
+	<script type="text/javascript">
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" "); for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+
+	</script>
+	<script>(function() { var _fbq = window._fbq || (window._fbq = []); if (!_fbq.loaded) { var fbds = document.createElement('script');
+	fbds.async = true; fbds.src = '//connect.facebook.net/en_US/fbds.js'; var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(fbds, s); _fbq.loaded = true; }
+		if (window.keys.facebook) _fbq.push(['addPixelId', window.keys.facebook]);
+	})();
+	window._fbq = window._fbq || [];
+	window._fbq.push(['track', 'PixelInitialized', {}]);
+	</script>
+</head>
+<body class="logged-in ">
+<div class="col-sm-12 main">
+<div class="row company-create-bg">
+	<div class="col-xs-8">
+		<div class="wiz">
+			<ul class="steps horiz-list">
+				<li ng-if="is_new"><span class="num">1</span> <span class="txt">Basic Company Info</span></li>
+				<li class="active"><span class="num">2</span> <span class="txt">Sync Repos</span></li>
+				<li><span class="num">3</span> <span class="txt">Create Team</span></li>
+			</ul>
+			<div class="repos">
+				<div>
+					<h2>Select the type or repos you want to sync:</h2>
+					<br />
+				</div>
+			</div>
+			
+			<div class="btn-container text-center">				
+				<button id="publicRepos" class="btn btn-primary btn-lg"><i class="fa fa-github fa-lg"></i> Sync public repos</button>
+				<br />
+			
+				<br />
+				<p class="text-center">OR</p>
+				<button id="privateRepos" class="btn btn-primary btn-lg"><i class="fa fa-github fa-lg"></i> Sync public and private repos</button>
+			</div>
+			<br />
+			<div class="well dark">
+				<div class="row">
+					<div class="col-xs-2 clearfix text-right">
+						<img src="img/ant-why.png" width="92" height="106" class="img-responsive">
+					</div>
+					<div class="col-xs-10 clearfix">
+						<h3>Why do you ask for write access to my repos?</h3>	
+						<p>We do need read access to your repo to compute the diffs, but unfortunately <a href="https://developer.github.com/v3/oauth/#scopes">GitHub's permission scopes</a> don't distinguish between read and read/write access.</p>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-4 clearfix">
+		<div class="company-create">
+			<h2>Sync some of your projects' repos.</h2>
+			<img src="img/ant-create-company2.png" width="250" height="250" alt="ant" class="img-responsive">
+			<h3>Later you'll be able to define who get's to see each repo.</h3>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+	<!-- Scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="js/contact_form.js"></script>
+	<script>
+
+		function getParams() {
+			var query = window.location.href.split('?')[1] || '';
+			var params = {};
+			$.each(query.split('&'), function() {
+				var kv = this.split('=');
+				if(kv.length == 2)
+					params[kv[0]] = kv[1];
+			});
+			return params;
+		}
+
+		$('#publicRepos').click(function() {
+			if (window.keys.mixpanel)
+				mixpanel.track("Event: select permissions", {type: 'public'});
+
+			var params = getParams();
+			window.location = "/users/auth/github?url=/create-company/" + params.company + "/" + params.email + "&scope=public_repo";
+		});
+
+		$('#privateRepos').click(function() {
+			if (window.keys.mixpanel)
+				mixpanel.track("Event: select permissions", {type: 'private'});
+
+			var params = getParams();
+			window.location = "/users/auth/github?url=/create-company/" + params.company + "/" + params.email + "&scope=repo";
+		});
+
+		if ( window.keys.ga ) {
+			window.ga('create', window.keys.ga, 'auto');
+			ga('send', 'pageview');
+		}
+
+		if (window.keys.mixpanel) {
+			window.mixpanel.init(window.keys.mixpanel);
+			mixpanel.track("Visit Create company - select type");
+
+			//$('#privateRepos').click(function() {
+			//	mixpanel.track("Event: select permissions", {type: 'private'});
+			//});
+
+			//$('#privateRepos').click(function() {
+			//	mixpanel.track("Event: select permissions", {type: 'public'});
+			//});
+		}
+	</script>
+</body>
+</html>

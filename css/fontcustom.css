@@ -1,0 +1,233 @@
+/*
+  Icon Font: fontcustom
+*/
+
+@font-face {
+  font-family: "fontcustom";
+  src: url("../fonts/fontcustom_904ca7c1b90790d29f048e6995a961db.eot");
+  src: url("../fonts/fontcustom_904ca7c1b90790d29f048e6995a961db.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/fontcustom_904ca7c1b90790d29f048e6995a961db.woff") format("woff"),
+       url("../fonts/fontcustom_904ca7c1b90790d29f048e6995a961db.ttf") format("truetype"),
+       url("../fonts/fontcustom_904ca7c1b90790d29f048e6995a961db.svg#fontcustom") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "fontcustom";
+    src: url("../fonts/fontcustom_904ca7c1b90790d29f048e6995a961db.svg#fontcustom") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-00-base:before,
+.icon-ant:before,
+.icon-ant-alt:before,
+.icon-arrow-down:before,
+.icon-arrow-up:before,
+.icon-arrow-up-alt:before,
+.icon-badge-ant:before,
+.icon-badge-ant-alt:before,
+.icon-badge-assigned-critical-path:before,
+.icon-badge-assigned-pull-request:before,
+.icon-badge-comment:before,
+.icon-badge-commit-review--100:before,
+.icon-badge-commit-review-25:before,
+.icon-badge-direct-commit:before,
+.icon-badge-fork:before,
+.icon-badge-github:before,
+.icon-badge-import--100:before,
+.icon-badge-import-25:before,
+.icon-badge-import-5:before,
+.icon-badge-issue-closed:before,
+.icon-badge-level-10:before,
+.icon-badge-level-5:before,
+.icon-badge-linkedin:before,
+.icon-badge-live-branch-completed:before,
+.icon-badge-profile-complete:before,
+.icon-badge-pull-request:before,
+.icon-badge-pull-request-merged:before,
+.icon-badge-pull-request-rejected:before,
+.icon-badge-pull-requests-alt:before,
+.icon-badge-review:before,
+.icon-badge-review--100:before,
+.icon-badge-review-25:before,
+.icon-badge-review-request:before,
+.icon-badge-warning:before,
+.icon-branch:before,
+.icon-chevron-down:before,
+.icon-clock-circle:before,
+.icon-collaborators:before,
+.icon-comments:before,
+.icon-commits:before,
+.icon-dashboard:before,
+.icon-general:before,
+.icon-generic:before,
+.icon-gitcolony:before,
+.icon-gitcolony-rounded:before,
+.icon-incident-assigned:before,
+.icon-incident-close:before,
+.icon-incident-create:before,
+.icon-integrations:before,
+.icon-issue-circle:before,
+.icon-issue-close:before,
+.icon-issue-create:before,
+.icon-issue-ok-circle:before,
+.icon-issues:before,
+.icon-level-up-circle:before,
+.icon-live-branches:before,
+.icon-logout:before,
+.icon-merge:before,
+.icon-merge-circle:before,
+.icon-merge-wait:before,
+.icon-notifications:before,
+.icon-ok:before,
+.icon-plus:before,
+.icon-plus-circle:before,
+.icon-pull-request:before,
+.icon-pull-request-alt:before,
+.icon-pull-request-reject:before,
+.icon-pull-request-remote:before,
+.icon-pull-request-view:before,
+.icon-pulls:before,
+.icon-ranking:before,
+.icon-reject:before,
+.icon-repos:before,
+.icon-repositories:before,
+.icon-review:before,
+.icon-review-circle:before,
+.icon-review-request-assign:before,
+.icon-review-request-close:before,
+.icon-review-requests:before,
+.icon-settings:before,
+.icon-severity-blocker:before,
+.icon-severity-critical:before,
+.icon-severity-major:before,
+.icon-severity-minor:before,
+.icon-severity-trivial:before,
+.icon-star:before,
+.icon-star-circle:before,
+.icon-tag:before,
+.icon-thread:before,
+.icon-times:before,
+.icon-unfold:before,
+.icon-virtual-pull-request:before,
+.icon-vote-dev:before,
+.icon-vote-qa:before,
+.icon-wait:before,
+.icon-warning:before,
+.icon-you-mentioned-comment:before {
+  display: inline-block;
+  font-family: "fontcustom";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-00-base:before { content: "\f100"; }
+.icon-ant:before { content: "\f10d"; }
+.icon-ant-alt:before { content: "\f10f"; }
+.icon-arrow-down:before { content: "\f122"; }
+.icon-arrow-up:before { content: "\f123"; }
+.icon-arrow-up-alt:before { content: "\f124"; }
+.icon-badge-ant:before { content: "\f14a"; }
+.icon-badge-ant-alt:before { content: "\f14b"; }
+.icon-badge-assigned-critical-path:before { content: "\f12b"; }
+.icon-badge-assigned-pull-request:before { content: "\f12c"; }
+.icon-badge-comment:before { content: "\f128"; }
+.icon-badge-commit-review--100:before { content: "\f133"; }
+.icon-badge-commit-review-25:before { content: "\f136"; }
+.icon-badge-direct-commit:before { content: "\f12d"; }
+.icon-badge-fork:before { content: "\f14c"; }
+.icon-badge-github:before { content: "\f139"; }
+.icon-badge-import--100:before { content: "\f13a"; }
+.icon-badge-import-25:before { content: "\f13d"; }
+.icon-badge-import-5:before { content: "\f13e"; }
+.icon-badge-issue-closed:before { content: "\f12e"; }
+.icon-badge-level-10:before { content: "\f140"; }
+.icon-badge-level-5:before { content: "\f141"; }
+.icon-badge-linkedin:before { content: "\f142"; }
+.icon-badge-live-branch-completed:before { content: "\f132"; }
+.icon-badge-profile-complete:before { content: "\f143"; }
+.icon-badge-pull-request:before { content: "\f14d"; }
+.icon-badge-pull-request-merged:before { content: "\f130"; }
+.icon-badge-pull-request-rejected:before { content: "\f131"; }
+.icon-badge-pull-requests-alt:before { content: "\f14e"; }
+.icon-badge-review:before { content: "\f129"; }
+.icon-badge-review--100:before { content: "\f144"; }
+.icon-badge-review-25:before { content: "\f147"; }
+.icon-badge-review-request:before { content: "\f14f"; }
+.icon-badge-warning:before { content: "\f150"; }
+.icon-branch:before { content: "\f110"; }
+.icon-chevron-down:before { content: "\f125"; }
+.icon-clock-circle:before { content: "\f11b"; }
+.icon-collaborators:before { content: "\f101"; }
+.icon-comments:before { content: "\f10e"; }
+.icon-commits:before { content: "\f111"; }
+.icon-dashboard:before { content: "\f115"; }
+.icon-general:before { content: "\f164"; }
+.icon-generic:before { content: "\f15e"; }
+.icon-gitcolony:before { content: "\f126"; }
+.icon-gitcolony-rounded:before { content: "\f16f"; }
+.icon-incident-assigned:before { content: "\f16e"; }
+.icon-incident-close:before { content: "\f15f"; }
+.icon-incident-create:before { content: "\f165"; }
+.icon-integrations:before { content: "\f117"; }
+.icon-issue-circle:before { content: "\f11c"; }
+.icon-issue-close:before { content: "\f160"; }
+.icon-issue-create:before { content: "\f166"; }
+.icon-issue-ok-circle:before { content: "\f11d"; }
+.icon-issues:before { content: "\f102"; }
+.icon-level-up-circle:before { content: "\f127"; }
+.icon-live-branches:before { content: "\f105"; }
+.icon-logout:before { content: "\f103"; }
+.icon-merge:before { content: "\f153"; }
+.icon-merge-circle:before { content: "\f16b"; }
+.icon-merge-wait:before { content: "\f156"; }
+.icon-notifications:before { content: "\f118"; }
+.icon-ok:before { content: "\f112"; }
+.icon-plus:before { content: "\f12a"; }
+.icon-plus-circle:before { content: "\f121"; }
+.icon-pull-request:before { content: "\f167"; }
+.icon-pull-request-alt:before { content: "\f168"; }
+.icon-pull-request-reject:before { content: "\f15a"; }
+.icon-pull-request-remote:before { content: "\f151"; }
+.icon-pull-request-view:before { content: "\f159"; }
+.icon-pulls:before { content: "\f154"; }
+.icon-ranking:before { content: "\f107"; }
+.icon-reject:before { content: "\f157"; }
+.icon-repos:before { content: "\f116"; }
+.icon-repositories:before { content: "\f108"; }
+.icon-review:before { content: "\f15b"; }
+.icon-review-circle:before { content: "\f11f"; }
+.icon-review-request-assign:before { content: "\f169"; }
+.icon-review-request-close:before { content: "\f16a"; }
+.icon-review-requests:before { content: "\f155"; }
+.icon-settings:before { content: "\f109"; }
+.icon-severity-blocker:before { content: "\f170"; }
+.icon-severity-critical:before { content: "\f171"; }
+.icon-severity-major:before { content: "\f172"; }
+.icon-severity-minor:before { content: "\f173"; }
+.icon-severity-trivial:before { content: "\f174"; }
+.icon-star:before { content: "\f10b"; }
+.icon-star-circle:before { content: "\f16c"; }
+.icon-tag:before { content: "\f10c"; }
+.icon-thread:before { content: "\f114"; }
+.icon-times:before { content: "\f152"; }
+.icon-unfold:before { content: "\f175"; }
+.icon-virtual-pull-request:before { content: "\f16d"; }
+.icon-vote-dev:before { content: "\f162"; }
+.icon-vote-qa:before { content: "\f163"; }
+.icon-wait:before { content: "\f158"; }
+.icon-warning:before { content: "\f104"; }
+.icon-you-mentioned-comment:before { content: "\f15c"; }

@@ -1,0 +1,65 @@
+db:
+  image: postgres
+  ports:
+    - "5432"
+  environment:
+    - POSTGRES_PASSWORD=gitcolony
+    - POSTGRES_USER=gitcolony
+  volumes:
+    - /var/lib/gitcolony/data/db:/var/lib/postgresql/data
+data:
+  image: gitcolony/server:latest
+  command: sh
+code:
+  image: gitcolony/rails-base:latest
+  command: ./docker-start
+  volumes:
+    - /var/lib/gitcolony/core/code:/app
+    - /var/lib/gitcolony/data/code:/data
+  working_dir: /app
+  ports:
+    - "8080"
+  env_file:
+    - default.env
+    - user.env
+web:
+  image: gitcolony/rails-base:latest
+  command: ./docker-start
+  volumes:
+    - /var/lib/gitcolony/core/web:/app
+    - /var/lib/gitcolony/data/web:/data
+  working_dir: /app
+  ports:
+    - "443:443"
+    - "80:80"
+  links:
+    - db
+    - code
+    - pusher
+  env_file:
+    - default.env
+    - user.env
+jobs:
+  image: gitcolony/rails-base:latest
+  command: ./docker-jobs
+  volumes:
+    - /var/lib/gitcolony/core/web:/app
+    - /var/lib/gitcolony/data/web:/data
+  working_dir: /app
+  links:
+    - db
+    - code
+  env_file:
+    - default.env
+    - user.env
+pusher:
+  image: gitcolony/rails-base:latest
+  command: ./bin/notification-server
+  volumes:
+    - /var/lib/gitcolony/core/web:/app
+  working_dir: /app
+  ports:
+    - "8080"
+  env_file:
+    - default.env
+    - user.env

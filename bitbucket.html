@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gitcolony | The next generation of pull requests</title>
+	<link rel="canonical" href="https://www.gitcolony.com">
+	
+	<meta name="description" content="Gitcolony is a collaborative platform for software developers to perform peer code reviews. Gitcolony makes code reviews actually happen in an efficient and amusing way.">
+	<meta name="keywords" content="git, git code review software, code review, quality, performance, qa processes, quality software, integrations">
+	
+	<!-- Twitter Card data -->
+	<meta name="twitter:card" content="Gitcolony is a collaborative platform for software developers to perform peer code reviews. Gitcolony makes code reviews actually happen in an efficient and amusing way.">
+	<meta name="twitter:site" content="@gitcolony">
+	<meta name="twitter:title" content="Gitcolony | The next generation of pull requests">
+	<meta name="twitter:description" content="Gitcolony is a collaborative platform for software developers to perform peer code reviews. Gitcolony makes code reviews actually happen in an efficient and amusing way.">
+	<meta name="twitter:creator" content="@gitcolony">
+	<meta name="twitter:image" content="https://www.gitcolony.com/img/gitcolony-social-icon.png" />
+	
+	<!-- Open Graph data -->
+	<meta property="og:title" content="Gitcolony | The next generation of pull requests" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="https://www.gitcolony.com/" />
+	<meta property="og:image" content="https://www.gitcolony.com/img/gitcolony-social-icon.png" />
+	<meta property="og:description" content="Gitcolony is a collaborative platform for software developers to perform peer code reviews. Gitcolony makes code reviews actually happen in an efficient and amusing way." />
+	<meta property="og:site_name" content="Gitcolony" />
+	<meta property="fb:admins" content="1528770957345205" /> 
+
+	<!-- Styles -->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="apple-touch-icon" href="../img/apple-touch-icon.png" />
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<script type="text/javascript">window.keys = {"pusher":{"key":null,"cluster":""},"mixpanel":"2d4a402ca0d295d48a436ce44484e662","ga":"UA-53481157-1","facebook":"1726963037528107","notifier":{"url":null}}</script>
+	<script type="text/javascript">
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" "); for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+
+	</script>
+	<script>(function() { var _fbq = window._fbq || (window._fbq = []); if (!_fbq.loaded) { var fbds = document.createElement('script');
+	fbds.async = true; fbds.src = '//connect.facebook.net/en_US/fbds.js'; var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(fbds, s); _fbq.loaded = true; }
+		if (window.keys.facebook) _fbq.push(['addPixelId', window.keys.facebook]);
+	})();
+	window._fbq = window._fbq || [];
+	window._fbq.push(['track', 'PixelInitialized', {}]);
+	</script>
+</head>
+<body class="index home">
+<div class="bg-bb">
+	<header class="navbar navbar-fixed-top light-header" role="navigation">
+	<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><img src="img/gitcolony-white.svg" alt="Gitcolony"></a>
+			</div>
+			<nav class="collapse navbar-collapse">
+				<ul class="nav navbar-nav" id="nav">
+					<li><a href="/features">POWERFUL FEATURES</a></li>
+					<!--li><a href="/pricing">PLANS &amp; PRICING</a></li-->
+					<li><a href="/enterprise">ENTERPRISE</a></li>
+					<li><a data-target="#contact" data-toggle="modal" href="#">CONTACT</a></li>
+					<li><a href="#" data-target="#demo" data-toggle="modal" data-placement="bottom" class="btn btn-outline" gc-tooltip="Get a personalized tour of Gitcolony">REQUEST A DEMO</a></li>
+					<li><a href="/users/auth/bitbucket" class="btn btn-primary">SIGN IN</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+
+	<!-- Call to action -->
+<div class="jumbotron">
+	<div class="container text-center">
+		<div class="row text-center">
+				<div class="col-sm-12 hero text-center">
+					<h1>Bitbucket <strong>+</strong> Gitcolony</h1> 
+					<p>Get ready for some real magic!</p>
+				</div>
+			</div>
+			
+			<img src="img/badge-bb.svg" class="support" alt="We love Bitbucket!">
+			<br />
+			<img src="img/ant-superhero.svg" width="270" height="294" class="img-responsive main-ant" alt="Gitcolony mascot">
+			<br />
+			<br />
+			
+	</div>
+</div>
+</div>
+
+<div class="bg-bb-bottom">
+<br />
+
+<div class="container">
+	<div class="row">
+		
+		<div class="col-sm-6">
+			<h4 class="call-to-action text-white">Gitcolony.com</h4>
+			<p class="light-blue no-margin">In our servers</p>
+			<p>This is our cloud hosted version of Gitcolony which we operate and maintain for you.</p>
+			
+			<a href="#" id="signUpClick" data-toggle="modal" data-target="#pop-signin" class="btn btn-primary btn-lg"> SIGN UP FOR FREE</a>
+		</div>
+		<div class="col-sm-6">
+			<h4 class="call-to-action text-white">Gitcolony Enterprise</h4>
+			<p class="light-blue no-margin">In your own servers</p>
+			<p>Our on-premises version of Gitcolony, which you deploy and manage in your own servers. We provide support and assistance.</p>
+			
+			<a href="/enterprise" class="btn btn-primary btn-lg"> LEARN MORE</a>
+		</div>
+		
+	</div>
+</div>
+</div>
+<br />
+<br />
+</div>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					<h3>Want to know more? Get in touch with us:</h3>
+					<div class="contact">
+						<ul>
+							<li><i class="fa fa-envelope"></i> <a href="mailto:contact@gitcolony.com">contact@gitcolony.com</a></li>
+							<li><i class="fa fa-skype"></i> Gitcolony</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-6 footer-contact">
+					<div class="social">
+					<a href="https://mixpanel.com/f/partner"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>  &nbsp;
+						<a class="ico" target="_blank" href="http://www.linkedin.com/company/gitcolony"><i class="fa fa-linkedin"></i></a>
+						<a class="ico" target="_blank" href="https://twitter.com/gitcolony"><i class="fa fa-twitter"></i></a>
+						<a class="ico" target="_blank" href="https://www.facebook.com/Gitcolony"><i class="fa fa-facebook"></i></a>
+						<a class="ico" target="_blank" href="https://medium.com/@gitcolony/"><i class="fa fa-rss"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="container space-top-sm">
+					Copyright &copy; <img src="img/ant-footer.svg" alt="Gitcolony"> Gitcolony 2015 <br>
+				<span class="smll">ALL RIGHTS RESERVED.<br />
+					Not affiliated with Bitbucket. Bitbucket and its logos are trademarks of Atlassian Pty Ltd.</span>
+				<div class="smll"><a href="/privacy" rel="nofollow">PRIVACY POLICY</a> &nbsp; | &nbsp;  
+				<a href="/terms-and-conditions" rel="nofollow">TERMS AND CONDITIONS</a> &nbsp; | &nbsp;  
+				<a href="/faq" rel="nofollow">FAQ</a></div>  
+			</div>
+		</div>
+	</footer>
+
+	<div id="contact" class="modal pop-contact fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="row">
+						<div class="col-xs-2"> <img width="78" height="60" alt="Talking bubble" class="icon-title img-responsive" src="img/bubble.png"> </div>
+						<div class="col-xs-10">
+							<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+							<h2>We'd love hearing from you.</h2>
+							<p>Just fill out the form below and tell us what you think.</p>
+						</div>
+					</div>
+				</div>
+				<form role="form" lead-type="contact">
+				<div class="modal-body">
+					<div class="contact-form clearfix">
+						<div class="form-group col-sm-6 col-xs-12">
+							<label class="control-label sr-only" for="name">Name</label>
+							<input type="text" name="name" placeholder="Name" id="name" class="form-control">
+						</div>
+						<div class="form-group col-sm-6 col-xs-12">
+							<label class="col-xs-3 control-label sr-only" for="email">Email</label>
+							<input type="text" name="email" placeholder="Email" id="email" class="form-control">
+						</div>
+						<div class="form-group col-xs-12">
+							<label class="col-xs-3 control-label sr-only" for="message">Interested in...</label>
+							<textarea name="message" class="col-sm-12" placeholder="Message"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer text-center">
+					<input type="submit" class="btn btn-danger" value="Send">
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+<div id="pop-signin" class="modal pop-signin fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+				<div id="github">
+					<div class="info-ms col-sm-12 hide" id="signInError">
+						<p>We noticed you were not part of <strong>Gitcolony</strong>, now that you've granted us permission in <strong>GitHub</strong>, lets continue to create your company. </p>
+						<p>Pick a name for it, and leave your email:</p>
+						<i class="pointer"></i>
+					</div>
+					<div class="info-ms col-sm-12 hide" id="freePlanMessage">
+						<p>In order to sync your projects, lets create your company in <strong>Gitcolony.com</strong>.</p>
+						<p>Pick a name for it, and leave your email:</p>
+						<i class="pointer"></i>
+					</div>
+					<div class="info-ms col-sm-12 hide" id="paidPlanMessage">
+						<p>In order to sync your projects, lets create your company in <strong>Gitcolony.com</strong>.</p>
+						<p>Pick a name for it, and leave your email:</p>
+						<i class="pointer"></i>
+					</div>
+					<h3>In order to sync your projects, lets create your company in <strong>Gitcolony.com</strong>.</h3>
+					<br /><br />
+					<h4>Pick a name for it, and leave your email:</h4>
+					<br />
+					<div class="row signin" id="signin-form">
+						<form role="form">
+							<div class="form-group col-sm-6">
+								<input type="text" id="companyInput" placeholder="Enter your company name" class="form-control">
+								<div class="invalid"></div>
+							</div>
+							<div class="form-group col-sm-6">
+								<input type="text" id="emailInput" placeholder="Enter your work email" class="form-control">
+								<div class="invalid"></div>
+							</div>
+					</div>
+					<br />
+					<p class="xxs text-center">By clicking "Sign up", you agree to our <a href="/terms-and-conditions" rel="nofollow" target="_blank">terms and conditions</a> & <a href="/privacy" rel="nofollow" target="_blank">privacy policy</a>.</p>
+					<br />
+					<div class="text-center">
+						<a id="signUp" provider="bitbucket" class="btn btn-primary btn-lg"> Sign up for free</a>
+					</div>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	
+<div id="demo" class="modal pop-contact fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="row">
+						<div class="col-xs-12">
+							<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+							<h1>We’re happy to help out!</h1>
+							<p>Want a real person to walk you through a live demo?</p>
+						</div>
+					</div>
+				</div>
+				<form role="form" lead-type="contact" class="form-demo-request">
+				<div class="modal-body">
+					<div class="row contact-form clearfix">
+						<div class="form-group col-sm-6 col-xs-12">
+							<label class="control-label sr-only" for="name">Name</label>
+							<input type="text" name="name" placeholder="Name" id="name" class="form-control">
+						</div>
+						<div class="form-group col-sm-6 col-xs-12">
+							<label class="col-xs-3 control-label sr-only" for="email">Email</label>
+							<input type="text" name="email" placeholder="Email" id="email" class="form-control">
+						</div>
+						<div class="form-group col-sm-6 col-xs-12">
+							<label class="col-xs-3 control-label sr-only" for="company">Company</label>
+							<input type="text" name="company" placeholder="Company" id="company" class="form-control">
+						</div>
+						<div class="form-group col-sm-6 col-xs-12">
+							<label class="col-xs-3 control-label sr-only" for="country">Country</label>
+							<input type="text" name="country" placeholder="Country" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer text-center">
+					<input type="submit" class="btn btn-danger" value="Request demo">
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>	
+
+
+	<!-- Scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="js/contact_form.js"></script>
+	<script>
+
+		if ( window.keys.ga ) {
+			window.ga('create', window.keys.ga, 'auto');
+			ga('send', 'pageview');
+		}
+
+		if (window.keys.mixpanel) {
+			window.mixpanel.init(window.keys.mixpanel);
+			mixpanel.track("Visit Bitbucket landing");
+		}
+
+		setTimeout(openChat, 60000);
+		
+		$(function() {
+    //caches a jQuery object containing the header element
+				var header = $(".light-header");
+				$(window).scroll(function() {
+						var scroll = $(window).scrollTop();
+		
+						if (scroll >= 80) {
+								header.removeClass('light-header').addClass("dark-header");
+						} else {
+								header.removeClass("dark-header").addClass('light-header');
+						}
+				});
+		});
+	</script>
+	
+	<!-- begin olark code -->
+<script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){
+f[z]=function(){
+(a.s=a.s||[]).push(arguments)};var a=f[z]._={
+},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){
+f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={
+0:+new Date};a.P=function(u){
+a.p[u]=new Date-a.p[0]};function s(){
+a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){
+hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){
+return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){
+b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{
+b.contentWindow[g].open()}catch(w){
+c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{
+var t=b.contentWindow[g];t.write(p());t.close()}catch(x){
+b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt()})({
+loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]});
+/* custom configuration goes here (www.olark.com/documentation) */
+olark.identify('9996-146-10-7814');/*]]>*/</script><noscript><a href="https://www.olark.com/site/9996-146-10-7814/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a></noscript>
+<!-- end olark code --
+</body>
+</html>

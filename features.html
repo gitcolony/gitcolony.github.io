@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Gitcolony | The next generation of pull requests</title>
+		<link rel="canonical" href="https://www.gitcolony.com/features">
+		<meta name="description" content="Everything your team needs to build bullet proof software: from a business rules engine to partial code reviews, pull requests, and much more - an all-in-one integrated solution.">
+		<meta name="keywords" content="code review, pull request, partial review, business rules engine, incident notifications, automated test, quality assurance, integrations">
+		<!-- Twitter Card data -->
+		<meta name="twitter:card" content="Gitcolony | The next generation of pull requests">
+		<meta name="twitter:site" content="@gitcolony">
+		<meta name="twitter:title" content="Gitcolony | The next generation of pull requests">
+		<meta name="twitter:description" content="Everything your team needs to build bullet proof software: from a business rules engine to partial code reviews, pull requests, review requests, and much more - an all-in-one integrated solution.">
+		<meta name="twitter:creator" content="@gitcolony">
+		<meta name="twitter:image" content="https://www.gitcolony.com/img/gitcolony-social-icon.png" />
+		<!-- Open Graph data -->
+		<meta property="og:title" content="Gitcolony | The next generation of pull requests" />
+		<meta property="og:type" content="article" />
+		<meta property="og:url" content="https://www.gitcolony.com/features" />
+		<meta property="og:image" content="https://www.gitcolony.com/img/gitcolony-social-icon.png" />
+		<meta property="og:description" content="Everything your team needs to build bullet proof software: from a business rules engine to partial code reviews, pull requests, review requests, and much more - an all-in-one integrated solution." />
+		<meta property="og:site_name" content="Gitcolony" />
+		<meta property="fb:admins" content="1528770957345205" />
+		<!-- Styles -->
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/custom.css" rel="stylesheet">
+		<link rel="shortcut icon" href="img/favicon.ico">
+		<link rel="apple-touch-icon" href="../img/apple-touch-icon.png" />
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script type="text/javascript">window.keys = {"pusher":{"key":null,"cluster":""},"mixpanel":"2d4a402ca0d295d48a436ce44484e662","ga":"UA-53481157-1","facebook":"1726963037528107","notifier":{"url":null}}</script>
+		<script type="text/javascript">
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" "); for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+			
+		</script>
+		<script>(function() { var _fbq = window._fbq || (window._fbq = []); if (!_fbq.loaded) { var fbds = document.createElement('script');
+			fbds.async = true; fbds.src = '//connect.facebook.net/en_US/fbds.js'; var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(fbds, s); _fbq.loaded = true; }
+				if (window.keys.facebook) _fbq.push(['addPixelId', window.keys.facebook]);
+			})();
+			window._fbq = window._fbq || [];
+			window._fbq.push(['track', 'PixelInitialized', {}]);
+		</script>
+	</head>
+	<body class="index powerful-features">
+		<header class="navbar navbar-fixed-top" role="navigation">
+			<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			<div class="container">
+				<div class="navbar-header"> <a class="navbar-brand" href="/welcome"><img src="img/gitcolony-inverted.svg" alt="Gitcolony"></a> </div>
+				<nav class="collapse navbar-collapse">
+					<ul class="nav navbar-nav" id="nav">
+						<li class="active"><a href="/features">POWERFUL FEATURES</a></li>
+						<!--li><a href="/pricing">PLANS &amp; PRICING</a></li-->
+						<li><a href="/enterprise">ENTERPRISE</a></li>
+						<li><a data-target="#contact" data-toggle="modal" href="#">CONTACT</a></li>
+						<li><a href="#" data-target="#demo" data-toggle="modal" data-placement="bottom" class="btn btn-outline">REQUEST A DEMO</a></li>
+						<li><a href="/users/auth/github" class="btn btn-primary">SIGN IN</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<div class="jumbotron">
+			<div class="container">
+				<div class="intro text-center">
+					<h1>Powerful features</h1>
+					<p class="big">Make code review process more efficient.</p>
+				</div>
+				<div class="row">
+					<div class="col-sm-8 pull-right">
+						<ul>
+							<li>Deliver high quality code without reducing the teams' throughput.</li>
+							<li>Enforce quality policies through our business rules engine.</li>
+							<li>Articulate QA, release and development teams.</li>
+						</ul>
+					</div>
+					<div class="col-sm-4 text-center"> <img src="img/ant-features.png" width="244" height="229" class="img-responsive ant-features" alt="Ant"> </div>
+				</div>
+			</div>
+		</div>
+		<br />
+		<div class="container">
+			<div class="intro text-center">
+				<h2>Super Pull Requests</h2>
+				<p>Collaborate with your team in real time, performing progressive checks to avoid titanic reviews before deploying.</p>
+			</div>
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs " role="tablist">
+					<li role="presentation" class="active"><a href="#partial-reviews" aria-controls="home" role="tab" data-toggle="tab">Partial Reviews</a></li>
+					<li role="presentation"><a href="#linked-pull-requests" aria-controls="profile" role="tab" data-toggle="tab">Linked Pull Requests</a></li>
+					<li role="presentation"><a href="#reviewers-mergers" aria-controls="home" role="tab" data-toggle="tab">Multiple Reviewers & Mergers</a></li>
+					<li role="presentation"><a href="#pull-requests" aria-controls="profile" role="tab" data-toggle="tab">Virtual Pull Requests</a></li>
+					<li role="presentation"><a href="#powerful-review" aria-controls="profile" role="tab" data-toggle="tab">Powerful Review</a></li>
+					<li role="presentation"><a href="#trackeable" aria-controls="messages" role="tab" data-toggle="tab">Traceable</a></li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content features-list">
+					<div role="tabpanel" class="tab-pane active" id="partial-reviews">
+						<div class="row">
+							<div class="col-sm-5">
+								<h3>Partial Reviews</h3>
+								<p>You don't have to wait for a standard pull request to review thousands of lines altogether.</p>
+								<p>Create a <strong>Virtual Pull Request</strong> and check the code while it's being written, making the review process much more actionable and meaningful.</p>
+								<br />
+								<h4>Save time</h4>
+								<p>Gitcolony remembers your last review so you don't have to review things twice.  We save partial reviews per user to preserve your team's effort.</p>
+								<br />
+								<div class="well well-light">
+									<h3>Rebase remotely? Huge fan of the amend command? </h3>
+									<p>Gitcolony supports it, while still giving the chance to partially review your PRs.</p>
+								</div>
+							</div>
+							<div class="col-sm-7">
+								<div class="quote">
+									"Ask programmers to review <strong>10 lines of code</strong>, they'll find <strong>10 issues</strong>. <br />
+									Ask them to do <strong>500 lines</strong> and they'll say <strong>it looks good</strong>".<br />
+									<p class="by-line">The harsh truth about code reviews.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="reviewers-mergers">
+						<div class="row">
+							<div class="col-sm-5">
+								<h3>Multiple Reviewers & Mergers</h3>
+								<p>Select multiple reviewers and specify whether their review is optional or mandatory.</p>
+								<p>You also have the option of appointing the person who will merge the pull request or leave that task available to any member of the team.</p>
+								<br />
+								<h4>Due date</h4>
+								<p>Specify a due date so team members get notified when they're running out of time.</p>
+								<br />
+								<h4>Let them know that is still in progress</h4>
+								<p>As long as the PR is in progress our business rules will not allow anyone to merge it.</p>
+								<br />
+							</div>
+							<div class="col-sm-7 text-center"> <img src="img/pull-requests.png" width="1265" height="684" alt="Company stats" class="img-responsive"> </div>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="pull-requests">
+						<div class="row">
+							<div class="col-sm-5">
+								<h3>Virtual pull requests</h3>
+								<p>Like the good old pull request, but not populated in GitHub, they only exist within the boundaries of Gitcolony.</p>
+								<p>This makes visible your work so your team can review it from the get go, without the risk of merging it by mistake.</p>
+								<br />
+								<h4>Ready to be merged? Vote for it</h4>
+								<p>People can vote to merge if they think the pull request is ready.</p>
+								<p>Once the code is complete, you can transform the virtual pull request into a standard pull request and merge it as you usually do.</p>
+								<br />
+							</div>
+							<div class="col-sm-7 text-center"> <img src="img/virtual-pull-request.png" width="1280" height="674" alt="Company stats" class="img-responsive"> </div>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="linked-pull-requests">
+						<h3>Linked Pull Requests: a solution for multi-repositories projects</h3>
+						<div class="row">
+							<div class="col-sm-5">
+								<p>If you use multiple repositories for the same project it’s almost impossible to review  and keep track of all of them.</p>
+								<p>Gitcolony automatically links PRs from different repos but with the same origin branch. Once they're all reviewed, and in compliance with your business rules, they can be merged simultaneously.</p>
+							</div>
+							<div class="col-sm-7"> <img src="img/linked-pr.png" width="1128" height="214" class="img-responsive"> </div>
+						</div>
+						<br />
+						<br />
+						<br />
+						<div class="row">
+							<div class="col-sm-5 pull-right">
+								<h3>Check linked PRs status at any time!</h3>
+								<p>When reviewing a PR you can easily verify the status of all linked Pull Requests.</p>
+							</div>
+							<div class="col-sm-7"> <img src="img/linked-pr-2.png" width="745" height="210" class="img-responsive"> </div>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="powerful-review">
+						<div class="row">
+							<div class="col-sm-5">
+								<h3>Powerful review</h3>
+								<p>See al the files that changed and easily navigate them while you review your code. Moving between files is super easy!</p>
+								<br />
+								<h4>Search, Browse, Open, Minimize and maximize your files!</h4>
+								<p>You can search files to give a technical context to the review.</p>
+							</div>
+							<div class="col-sm-7 text-center"> <img src="img/search-updated.gif" width="1281" height="662" alt="Conversation" class="img-responsive"> </div>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="trackeable">
+						<div class="row">
+							<div class="col-sm-5">
+								<h3>Code reviews are now traceable</h3>
+								<p>The code review process is now measurable and traceable in our <strong>rich timeline</strong>.</p>
+								<br />
+								<h4>Gitk on steroids</h4>
+								<p>Enjoy a condensed compilation about your build, commits details, issues, reviewers, etc., it's like gitk on steroids!!!</p>
+								<br />
+								<h4>Audit and control your code</h4>
+								<p>Have all the information you need at hand to make better data-driven decisions. Now you can tell which branches your commits belong to, the review coverage of those branches, who approved and voted, etc.</p>
+								<br />
+							</div>
+							<div class="col-sm-7">
+								<p><img src="img/timeline-short.png" width="2340" height="1621" alt="Timeline" class="img-responsive"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="grey">
+			<div class="container">
+				<div class="intro text-center">
+					<h2>Merging Pull Requests</h2>
+					<p>With Gitcolony you can manage the whole development cycle: create the pull request, review it and merge it!</p>
+				</div>
+				<div role="tabpanel">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs " role="tablist">
+						<li role="presentation" class="active"><a href="#merge-pr" role="tab" data-toggle="tab">Merging PRs</a></li>
+						<li role="presentation"><a href="#up-to-date-prs" role="tab" data-toggle="tab">Up-to-date PRs</a></li>
+					</ul>
+					<!-- Tab panes -->
+					<div class="tab-content features-list">
+						<div role="tabpanel" class="tab-pane active" id="merge-pr">
+							<div class="row">
+								<div class="col-sm-5">
+									<ul class="list">
+										<li><i class="fa fa-caret-right"></i> &nbsp; Create the Pull Request.</li>
+										<li><i class="fa fa-caret-right"></i> &nbsp; Assign reviewers and mergers.</li>
+										<li><i class="fa fa-caret-right"></i> &nbsp; Analize all the files that where part of the PR.</li>
+										<li><i class="fa fa-caret-right"></i> &nbsp; Discuss the best course of action with your peers.</li>
+										<li><i class="fa fa-caret-right"></i> &nbsp; Vote for merging the code.</li>
+										<li><i class="fa fa-caret-right"></i> &nbsp; Merge the Pull Request.</li>
+									</ul>
+									<br />
+									<br />
+									<h4>Super easy merge</h4>
+									<p>The merge interface allows displaying and merging diffs, either two-way or three-way. The left (or center) pane is editable, and the differences with the other pane(s) are shown live as you edit it.</p>
+								</div>
+								<div class="col-sm-7">
+									<br />
+									<p><img src="img/merge.png" width="600" height="411" alt="Merge" class="img-responsive no-shadow"></p>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="up-to-date-prs">
+							<div class="row">
+								<div class="col-sm-5">
+									<h3>UP-TO-DATE PRs</h3>
+									<p>Gitcolony helps you make sure your Pull Requests are always up-to-date with your destination branch.</p>
+									<p>If you choose to, Gitcolony takes new commits to the destination branch
+										and automatically merges them into your Pull Request.
+									</p>
+									<br />
+									<br />
+									<h4>Create your PRs automatically</h4>
+									<p>You can set that, whenever a commit is pushed into a new branch, Gitcolony create a PR "in progress" for the team to immediately start reviewing your work.</p>
+									<br />
+									<br />
+									<h4>Notifications</h4>
+									<p>Our business rules engine monitors the process and notifies you whenever a pull request enters in conflict.</p>
+								</div>
+								<div class="col-sm-7">
+									<br />
+									<p><img src="img/up-to-date.png" width="600" height="400" alt="Merge" class="img-responsive no-shadow"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class=" incidents-section">
+			<div class="container">
+				<div class="intro text-center">
+					<h2>Custom business rules engine + EWS</h2>
+					<p>Gitcolony helps you reinforce the rules your team follows informally.</p>
+				</div>
+				<div role="tabpanel">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs " role="tablist">
+						<li role="presentation" class="active"><a href="#business-rules" role="tab" data-toggle="tab">Business rules</a></li>
+						<li role="presentation"><a href="#ews" role="tab" data-toggle="tab">EWS</a></li>
+					</ul>
+					<!-- Tab panes -->
+					<div class="tab-content features-list">
+						<div role="tabpanel" class="tab-pane active" id="business-rules">
+							<div class="row">
+								<div class="col-sm-5">
+									<h3>
+									Business rules: reinforce informal processes
+									</h4>
+									<p>Gitcolony helps you reinforce your code review policies and best practices your team follows informally.</p>
+									<br />
+									<div class="well">
+										<p><strong>Your pull request have conflicts that you noticed only when you try to merge them?</strong></p>
+										<p>Set up the business rules that best suit your team's needs, and have them notified in real time about the things that really matter to them.</p>
+									</div>
+								</div>
+								<div class="col-sm-7">
+									<p><img src="img/business-rules-small.png" width="1280" height="598" alt="Business rules" class="img-responsive"></p>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="ews">
+							<div class="row">
+								<div class="col-sm-5">
+									<h3>EWS <span class="smll">(Early Warning System)</span></h3>
+									<p>Gitcolony proactively helps ensure your project's code quality. Based on a set of rules, we identify and notify you of every incident that needs your attention so you can solve it as soon and as smoothly as possible.</p>
+									<br />
+									<h4>Detect potential issues before they happen</h4>
+									<p>Based on Gitcolony's business rules engine we detect potential issues so your team can tackle them before they actually happen.</p>
+									<br />
+									<h4>For every broken rule, an incident is created</h4>
+									<p>Gitcolony helps you to reinforce all your formal and informal policies and best practices. You can define if someone can push directly into your main branch, define code review policies and much more!</p>
+								</div>
+								<div class="col-sm-7">
+									<p><img src="img/incidents.png" width="1280" height="673" alt="Incidents" class="img-responsive"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--br />
+		<br />
+		<br />
+		<div class="grey">
+			<div class="container">
+				<div class="intro text-center">
+					<br />
+					<br />
+					<div class="text-center"><span class="heart"><i class="fa fa-bolt"></i></span></div>
+					<br />
+					<h2>A revolutionary way to create Automated Tests</h2 >
+					<p>Our QA plugin allows your team to create <strong>automated tests</strong> by recording actions from the browser, making the process more efficient and setting the ground for future regression tests.</p>
+				</div>
+				<div class="row">
+					<div class="col-sm-5">
+						<h4>Taking testing to the next level</h4>
+						<p>Gitcolony QA Plugin records the steps taken by the user and generates an automated test associated with the branch where the issue was found.</p>
+						<br />
+						<h4>A new era began: ATDD is here</h4>
+						<p>Developers can run the test as many times as needed to solve the issue. Once the automated test is passed, the QA member receives a notification, and verifies the issue has been correctly solved.</p>
+						<br />
+						<h4>No more false positive tests</h4>
+						<p>You won't hear "I can't reproduce this issue" anymore. Now, there's an easy way to reproduce issues and make sure fixes are working before getting the task marked as done!</p>
+						<br />
+					</div>
+					<div class="col-sm-7">
+						<p><img src="img/reviewed.gif" width="1271" height="700" alt="Quality assurance" class="img-responsive"></p>
+						<br />
+						<br />
+					</div>
+				</div>
+			</div>
+		</div-->
+		<br />
+		<br />
+		<br />
+		<div class="">
+			<div class="container">
+				<div class="intro text-center">
+					<h2>Quality assurance made easy</h2>
+					<p>Integrate your development and QA processes.</p>
+				</div>
+				<div class="row">
+					<div class="col-sm-5">
+						<h4>Qualified voting</h4>
+						<p>Your QA team can vote to approve or reject pull requests. Your defined business rules ensure that no code is released without QA approval. </p>
+						<br />
+						<h4>Easy follow up</h4>
+						<p>Add evidence of the issues you find with a simple drag and drop move.</p>
+						<br />
+						<!--h4>QA Plugin</h4>
+						<p>Use our plugin to report issues in 2 steps without leaving the browser and easily link the issues found with the source code.</p>
+						<br /-->
+					</div>
+					<div class="col-sm-7">
+						<p><img src="img/qa.png" width="1232" height="649" alt="Quality assurance" class="img-responsive shadow"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+		<br />
+		<br />
+		<div class="grey">
+			<div class="container">
+				<div class="intro text-center">
+					<h2>Gamification</h2>
+					<p>Your team members get points for delivering high quality code and helping your team.</p>
+				</div>
+				<div class="row">
+					<div class="col-sm-5">
+						<h4>Internal rankings</h4>
+						<p>Have an internal monthly ranking based on performance and encourage your team to surpass their capabilities.</p>
+						<br />
+						<h4>Badges</h4>
+						<p>Your team members earn badges based on their commitment to quality.</p>
+						<br />
+					</div>
+					<div class="col-sm-7">
+						<p><img src="img/ranking.png" width="1280" height="673" alt="Company stats" class="img-responsive"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+		<br />
+		<br />
+		<div class="">
+			<div class="container integrations">
+				<div class="intro text-center">
+					<h2>Integrations</h2>
+					<p class="highlight">Gitcolony integrates with the services your team already uses!</p>
+					<p>Seamlessly pull data and activity from external tools to concentrate up-to-date information about your projects in just one place.</p>
+				</div>
+				<br />
+				<div class="row">
+					<div class="col-sm-3 vert-separator">
+						<div class="">
+						<h3>Git providers:</h3>
+						<br />
+						<br />
+						<div class="clearfix">
+							<h4><img src="img/logo-github.svg" width="40" alt="GitHub"> GitHub</h4>
+							<p>Synchronize commits, pull requests, and activity on GitHub Issues.</p>
+						</div>
+						<br />
+						<br />
+						<div class="clearfix relative">
+							<h4><img src="img/logo-bitbucket.svg" width="40" alt="Bitbucket"> Bitbucket</h4>
+							<p>Synchronize commits, pull requests, and activity on Bitbucket.</p>
+						</div>
+						<br />
+						<br />
+						<br />
+						<div class="clearfix relative">
+							<h4><img src="img/logo-gitlab.svg" width="40" alt="GitLab"> GitLab <span class="tag-green rotate">COMING SOON!</span></h4>
+							<p>Synchronize commits, pull requests, and activity on GitLab.</p>
+							<a class="btn btn-primary" data-target="#gitlab-dlg" data-toggle="modal" id="usingGitlab" href="#">Let me know when it's ready</a>
+						</div>
+						</div>
+					</div>
+					<div class="col-sm-9">					
+						<div class="">
+						<h3>Others:</h3>
+						<br />
+						<br />
+						<div class="row">
+							<div class="col-sm-4">
+								<div class="clearfix">
+									<h4><img src="img/logo-jenkins.svg" width="40" alt="Jenkins"> Jenkins</h4>
+									<p>Monitor the status of the build of pull requests.</p>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="clearfix">
+									<h4><img src="img/logo-cli.svg" width="40" alt="Powerful CLI"> Powerful CLI</h4>
+									<p>Use customized Gitcolony commands to make your daily job easier by never leaving the terminal.</p>
+								</div>
+							</div>
+							<!--div class="col-sm-3">
+								<div class="clearfix">
+									<h4><img src="img/logo-qa.svg" width="40"> QA Plugin</h4>
+									<p>Use this plugin to report issues in 2 steps without leaving the browser and easily associate your code with your issues.</p>
+								</div>
+							</div-->
+							<div class="col-sm-4">
+								<div class="clearfix">
+									<h4><img src="img/logo-jira.svg" width="40" alt="Jira"> Jira</h4>
+									<p>Synchronize your stories, tasks, issues and your activity on Jira and get it associated with your code.</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-sm-4">
+								<div class="clearfix">
+									<h4><img src="img/logo-trello.svg" width="40"> Trello</h4>
+									<p>Integrate your code with your Trello cards and update them based on your development process.</p>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="clearfix">
+									<h4><img src="img/logo-slack.svg" width="40" alt="Slack"> Slack</h4>
+									<p>Combine Gitcolony’s alerting capabilities with Slack and keep your team notified and up-to-date as to the status of your project.</p>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="clearfix">
+									<h4><img src="img/logo-hipchat.svg" width="40" alt="Hipchat"> Hipchat</h4>
+									<p>Combine Gitcolony’s alerting capabilities with Hipchat and keep your team notified and up-to-date as to the status of your project.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+		<br />
+					<hr />
+								
+		<br />
+		<div class="info text-center">
+			<h3>Want Gitcolony to integrate other services?</h3>
+			<br />
+			<button type="button" class="btn btn-primary btn-lg" data-target="#contact" data-toggle="modal">Get in touch</button>
+		</div>
+					
+				</div>
+		</div>
+		</div>
+		<br />
+		<br />
+		<br />
+		<br />
+		</div>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<h3>Want to know more? Get in touch with us:</h3>
+						<div class="contact">
+							<ul>
+								<li><i class="fa fa-envelope"></i> <a href="mailto:contact@gitcolony.com">contact@gitcolony.com</a></li>
+								<li><i class="fa fa-skype"></i> Gitcolony</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6 footer-contact">
+						<div class="social"> <a class="ico" target="_blank" href="http://www.linkedin.com/company/gitcolony"><i class="fa fa-linkedin"></i></a> <a class="ico" target="_blank" href="https://twitter.com/gitcolony"><i class="fa fa-twitter"></i></a> <a class="ico" target="_blank" href="https://www.facebook.com/Gitcolony"><i class="fa fa-facebook"></i></a> <a class="ico" target="_blank" href="https://medium.com/@gitcolony/"><i class="fa fa-rss"></i></a> </div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="container space-top-sm">
+					Copyright &copy; <img src="img/ant-footer.svg" alt="Gitcolony"> Gitcolony 2015 <br>
+					<span class="smll">ALL RIGHTS RESERVED.<br />
+					Not affiliated with GitHub. GitHub and its logos are trademarks of GitHub, Inc.<br />
+					Not affiliated with Bitbucket. Bitbucket and its logos are trademarks of Atlassian Pty Ltd. <br />
+					Not affiliated with GitLab. GitLab and its logos are trademarks of GitLab B.V. 
+					</span>
+					<div class="smll"><a href="/privacy" rel="nofollow">PRIVACY POLICY</a> &nbsp; | &nbsp; <a href="/terms-and-conditions" rel="nofollow">TERMS AND CONDITIONS</a> &nbsp; | &nbsp; <a href="/faq" rel="nofollow">FAQ</a></div>
+				</div>
+			</div>
+		</footer>
+		<div id="contact" class="modal pop-contact fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="row">
+							<div class="col-xs-2"> <img width="78" height="60" alt="Talking bubble" class="icon-title img-responsive" src="img/bubble.png"> </div>
+							<div class="col-xs-10">
+								<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+								<h2>We'd love hearing from you.</h2>
+								<p>Just fill out the form below and tell us what you think.</p>
+							</div>
+						</div>
+					</div>
+					<form role="form" lead-type="contact">
+						<div class="modal-body">
+							<div class="contact-form clearfix">
+								<div class="form-group col-sm-6 col-xs-12">
+									<label class="control-label sr-only" for="name">Name</label>
+									<input type="text" name="name" placeholder="Name" id="name" class="form-control">
+								</div>
+								<div class="form-group col-sm-6 col-xs-12">
+									<label class="col-xs-3 control-label sr-only" for="email">Email</label>
+									<input type="text" name="email" placeholder="Email" id="email" class="form-control">
+								</div>
+								<div class="form-group col-xs-12">
+									<label class="col-xs-3 control-label sr-only" for="message">Interested in...</label>
+									<textarea name="message" class="col-sm-12" placeholder="Message"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer text-center">
+							<input type="submit" class="btn btn-danger" value="Send">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="demo" class="modal pop-contact fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="row">
+							<div class="col-xs-12">
+								<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+								<h1>We’re happy to help out!</h1>
+								<p>Want a real person to walk you through a live demo?</p>
+							</div>
+						</div>
+					</div>
+					<form role="form" lead-type="contact" class="form-demo-request">
+						<div class="modal-body">
+							<div class="row contact-form clearfix">
+								<div class="form-group col-sm-6 col-xs-12">
+									<label class="control-label sr-only" for="name">Name</label>
+									<input type="text" name="name" placeholder="Name" id="name" class="form-control">
+								</div>
+								<div class="form-group col-sm-6 col-xs-12">
+									<label class="col-xs-3 control-label sr-only" for="email">Email</label>
+									<input type="text" name="email" placeholder="Email" id="email" class="form-control">
+								</div>
+								<div class="form-group col-sm-6 col-xs-12">
+									<label class="col-xs-3 control-label sr-only" for="company">Company</label>
+									<input type="text" name="company" placeholder="Company" id="company" class="form-control">
+								</div>
+								<div class="form-group col-sm-6 col-xs-12">
+									<label class="col-xs-3 control-label sr-only" for="country">Country</label>
+									<input type="text" name="country" placeholder="Country" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer text-center">
+							<input type="submit" class="btn btn-danger" value="Request demo">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="gitlab-dlg" class="modal pop-signin fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+						<h3>We're working on Gitcolony's integration with Gitlab.</h3>
+						<p>Leave your contact info and get notified as soon as it's available:</p>
+						<br />
+						<div class="row signin">
+							<div class="form-group col-sm-6">
+								<input type="text" id="gitlabCompany" placeholder="Enter your company name" class="form-control">
+								<div class="invalid"></div>
+							</div>
+							<div class="form-group col-sm-6">
+								<input type="text" id="gitlabEmail" placeholder="Enter your work email" class="form-control">
+								<div class="invalid"></div>
+							</div>
+						</div>
+						<br />
+						<div class="text-center">
+							<a id="requestGitlab" data-dismiss="modal" class="btn btn-primary btn-lg"> Send</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Scripts --> 
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> 
+		<script src="js/contact_form.js"></script> 
+		<script>
+			if ( window.keys.ga ) {
+				window.ga('create', window.keys.ga, 'auto');
+				ga('send', 'pageview');
+			}
+			
+			if (window.keys.mixpanel) {
+				window.mixpanel.init(window.keys.mixpanel);
+				mixpanel.track("Visit Powerful Features");
+			}
+		</script> 
+		<!-- begin olark code --> 
+		<script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){
+			f[z]=function(){
+			(a.s=a.s||[]).push(arguments)};var a=f[z]._={
+			},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){
+			f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={
+			0:+new Date};a.P=function(u){
+			a.p[u]=new Date-a.p[0]};function s(){
+			a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){
+			hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){
+			return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){
+			b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{
+			b.contentWindow[g].open()}catch(w){
+			c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{
+			var t=b.contentWindow[g];t.write(p());t.close()}catch(x){
+			b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt()})({
+			loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]});
+			/* custom configuration goes here (www.olark.com/documentation) */
+			olark.identify('9996-146-10-7814');/*]]>*/
+		</script>
+		<noscript>
+			<a href="https://www.olark.com/site/9996-146-10-7814/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a>
+		</noscript>
+		<!-- end olark code -->
+	</body>
+</html>
