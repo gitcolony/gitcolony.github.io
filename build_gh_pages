@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+`mkdir docs`
+
+`cp -r ../gitcolony-web/public/* ./`
+`cp ../gitcolony-web/app/views/enterprise/* ./enterprise`
+
+
+`mv welcome.html index.html`
+
+`rm -rf partials uploads widgets app.html live-branches.html`
+
+
+Dir['**/_*'].each do |f|
+  `mv #{f} #{f.gsub(/^_/, '').gsub(/\/_/, '/')}`
+end
+
+keys = '<script type="text/javascript">window.keys = {"pusher":{"key":null,"cluster":""},"mixpanel":"2d4a402ca0d295d48a436ce44484e662","ga":"UA-53481157-1","facebook":"1726963037528107","notifier":{"url":null}}</script>'
+search = /(<script[^>]+)keys=['"]true['"]([^>]*>)[^<]*(<\/script>)/
+
+Dir['**/*.html'].each do |f|
+  text = File.read(f)
+  new_contents = text.sub(search, keys)
+
+  # To write changes to the file, use:
+  File.open(f, "w") {|file| file.puts new_contents }
+end
+
+search = '<%=ENV[\'SITE_URL\']%>'
+replace = 'http://www.gitcolony.com'
+
+Dir['**/*.erb'].each do |f|
+  text = File.read(f)
+  new_contents = text.sub(search, replace)
+
+  # To write changes to the file, use:
+  File.open(f, "w") {|file| file.puts new_contents }
+end
+
+Dir['**/*.erb'].each do |f|
+  `mv #{f} #{f.gsub(/.erb/, '')}`
+end
+
