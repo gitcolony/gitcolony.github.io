@@ -5,7 +5,7 @@
 
 APP_FOLDER='/var/lib/gitcolony'
 APP_EXE='/usr/bin/gitcolony'
-GITCOLONY_ROOT="http://www.gitcolony.com"
+GITCOLONY_ROOT="https://www.gitcolony.com"
 DEF_ENV_FILE="$APP_FOLDER/default.env"
 USR_ENV_FILE="$APP_FOLDER/user.env"
 CONFIG_FILE="$APP_FOLDER/config"

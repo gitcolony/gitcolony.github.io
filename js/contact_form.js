@@ -51,6 +51,19 @@ function isValidEmail(email) {
   return re.test(email.trim());
 }
 
+function sendEmail(subject, data) {
+  var message = 'Subject ' + subject + '   ';
+  for(var k in data) {
+    message += k + ': ' + data[k] + '    '; 
+  }
+  return $.ajax({
+    url: "https://formspree.io/contact@gitcolony.com", 
+    method: "POST",
+    data: {message: message},
+    dataType: "json"
+  });
+}
+
 $(function(){
   $("#contact form").submit(function(event){
     event.preventDefault();
@@ -65,23 +78,18 @@ $(function(){
     if (name    === '') { alert("We need your name."); return; }
     if (message === '') { alert("Please include some message."); return; }
 
-    $.ajax({
-      type: "POST",
-      url: "/lead",
-      data: { lead: {
-        'email':   email,
-        'company': company,
-        'name':    name,
-        'message': message,
-        'type':    form.attr('lead-type'),
-        'plan':    window.plan
-      } },
-      dataType: 'json',
-      error: function() {
-        form.find(".form-wrapper").show();
-        form.find(".thanks-msg").hide();
-        alert("There was an error please try again");
-      }
+    sendEmail('Lead ', {
+      'email':   email,
+      'company': company,
+      'name':    name,
+      'message': message,
+      'type':    form.attr('lead-type'),
+      'plan':    window.plan
+    })
+    .fail(function() {
+      form.find(".form-wrapper").show();
+      form.find(".thanks-msg").hide();
+      alert("There was an error please try again");
     });
 
     form.find(".lead-form").hide();
@@ -101,21 +109,16 @@ $(function(){
     if (name === '') { alert("We need your name."); return; }
     if (company === '') { alert("We need your company name."); return; }
 
-    $.ajax({
-      type: "POST",
-      url: "/request-demo",
-      data: { lead: {
-        'email':   email,
-        'name':    name,
-        'company': company,
-        'country': country
-      } },
-      dataType: 'json',
-      error: function() {
-        form.find(".form-wrapper").show();
-        form.find(".thanks-msg").hide();
-        alert("There was an error please try again");
-      }
+    sendEmail('Request demo', {
+      'email':   email,
+      'name':    name,
+      'company': company,
+      'country': country
+    })
+    .fail(function() {
+      form.find(".form-wrapper").show();
+      form.find(".thanks-msg").hide();
+      alert("There was an error please try again");
     });
 
     form.find(".lead-form").hide();
@@ -228,17 +231,12 @@ $(function(){
     if (!isValidEmail(email)) { alert("We need your email to contact you.");  return; }
     if (company === '') { alert("We need your company name."); return; }
 
-    $.ajax({
-      type: "POST",
-      url: "/request-gitlab",
-      data: { lead: {
-        'email':   email,
-        'company':    company
-      } },
-      dataType: 'json',
-      error: function() {
-        alert("There was an error please try again");
-      }
+    sendEmail('Request Gitlab', {
+      'email':   email,
+      'company': company
+    })
+    .fail(function() {
+      alert("There was an error please try again");
     });
 
     $('#pop-signin').modal('hide');

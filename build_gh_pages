@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-`mkdir docs`
-
 `cp -r ../gitcolony-web/public/* ./`
 `cp ../gitcolony-web/app/views/enterprise/* ./enterprise`
 
@@ -27,7 +25,7 @@ Dir['**/*.html'].each do |f|
 end
 
 search = '<%=ENV[\'SITE_URL\']%>'
-replace = 'http://www.gitcolony.com'
+replace = 'https://www.gitcolony.com'
 
 Dir['**/*.erb'].each do |f|
   text = File.read(f)

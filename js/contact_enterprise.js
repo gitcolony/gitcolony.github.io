@@ -30,16 +30,11 @@ $(function(){
     //if (data.country === '') { alert("Please fill the country field."); return; }
     //if (data.repo_provider === '') { alert("Please fill your repo provider."); return; }
 
-    $.ajax({
-      type: "POST",
-      url: "/lead_enterprise",
-      data: { lead: data },
-      dataType: 'json',
-      error: function() {
-        $("#subscription-bank").modal('show');
-        $(".thank-you").hide();
-        alert("There was an error please try again");
-      }
+    sendEmail("lead enterprise", data)
+    .fail(function() {
+      $("#subscription-bank").modal('show');
+      $(".thank-you").hide();
+      alert("There was an error please try again");
     });
 
     if (window.keys.mixpanel)
