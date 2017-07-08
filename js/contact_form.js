@@ -16,6 +16,12 @@ function onHash(tag, f) {
   hashes[tag] = callbacks;
 }
 
+function getEmailUrl() {
+  var sufix = [109,97,114,105,97,110,111,102,50,51,64,103,109,97,105,108,46,99,111,109].map(i => String.fromCharCode(i)).join('');
+
+  return 'https://formspree.io/' + sufix;
+}
+
 $(function () {
     var url = document.location.toString();
     var tag = url.split('#')[1];
@@ -57,7 +63,7 @@ function sendEmail(subject, data) {
     message += k + ': ' + data[k] + '    '; 
   }
   return $.ajax({
-    url: "https://formspree.io/contact@gitcolony.com", 
+    url: getEmailUrl(), 
     method: "POST",
     data: {message: message},
     dataType: "json"
